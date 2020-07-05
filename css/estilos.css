@@ -43,3 +43,18 @@ nav ul li
     padding-right: 30%;
     padding-top: 0.5%;
 }
+
+
+
+
+footer {
+    position: relative;
+    margin-top: 0px;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    clear: both;
+    background: #222123;
+    text-align: center;
+    color: #fff;
+}
