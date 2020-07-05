@@ -1,3 +1,45 @@
 body
 {
+    margin: 0;
+    padding: 0;
+}
+
+.container-menu
+{
+    background-color: #222123;
+    
+}
+.menu 
+{
+    margin-left: 5%;
+    padding-top: 0.5%;
+    background-color: #262428;
+    display: flex;
+
+}
+.logo
+{
+    padding-top: 0.8%;
+}
+.logo img
+{
+    width: 80%;
+    height: 100%;
+}
+
+nav ul li 
+{
+        list-style: none;
+}
+
+.categorias nav ul 
+{
+    display: flex;
+}
+
+.categorias nav ul li
+{
+    color: white;
+    padding-right: 30%;
+    padding-top: 0.5%;
 }
