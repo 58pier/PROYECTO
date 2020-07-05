@@ -10,7 +10,7 @@
 
     <div class="menu">
         <div class="logo">
-            <img src="/aadsasd" >
+            <img src="../../img/logo.png" >
         </div>
         <div class="categorias">
             <nav>
@@ -23,7 +23,6 @@
             </nav>
         </div>
     </div>
-
 
 
 
