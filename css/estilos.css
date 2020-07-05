@@ -68,6 +68,16 @@ nav ul li
 }
 
 /*Cierra header*/
+
+/*Inicia Container*/
+
+.container
+{
+    margin: 50%;
+}
+
+/*Cierra Container*/
+
 /*Footer*/
 
 footer {
