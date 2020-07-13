@@ -72,6 +72,7 @@
         {
             $conn = new PDO( DB_DNS, DB_USERNAME, DB_PASSWORD);
             $sql = "SELECT *, UNIXTIMESTAMP(fecha) AS fecha FROM juegos WHERE id = :id";
+            $st = $conn->prepare( $sql);
             $st->bindValue( ":id", $id, PDO::PARAM_INT);
             $st->execute();
             $row = $st->fetch();
@@ -84,7 +85,8 @@
             $conn = new PDO( DB_DNS, DB_USERNAME, DB_PASSWORD);
             $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIXTIMESTAMP(fecha) AS fecha FROM juegos
                     ORDER BY fecha DESC LIMIT :numRows";
-            $st->bindValue( ":id", $id, PDO::PARAM_INT);
+            $st = $conn->prepare( $sql);
+            $st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
             $st->execute();
             $list = array();
 
@@ -97,11 +99,19 @@
             $sql = "SELECT FOUND_ROWS() AS totalRows";
             $totalRows = $conn->query($sql)->fetch();
             $conn = null;
-            retunr (array ( "results" => $list, "totalRows" => $totalRows[0]));
+            return (array ( "results" => $list, "totalRows" => $totalRows[0]));
         }
 
-        public 
+        public function insert(){
+            if( !is_null( $this->id)) trigger_error( "Juego::insert() Attempt to insert an Article object that already has its ID property set (to $this->id).", E_USER_ERROR);
+            
+            $conn = new PDO(DB_DNS, DB_USERNAME,DB_PASSWORD);
+            $sql = "INSERT INTO juegos (fecha,nombre,idiomas,precio,desarrollador,plataforma,clasificacion,resumen,requerimientos,pagina_web,derechos_autor,trailer,descripcion) VALUES (From_UNIXTIME(:fecha), :nombre,:idiomas,:precio,:desarrollador,:plataforma,:clasificacion,:resumen,:requerimientos,:pagina_web,:derechos_autor,:trailer,:descripcion)";
+            $st = $conn->prepare ($sql);
+            $st->bindValue(":fecha",$this->fecha, PDO)
+        }
+
     }
 
-
 ?>
+
