@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php include "include/header.php" ?>
     
  <div id="sections">
@@ -28,3 +29,5 @@
 </div>
 
  <?php include "include/footer.php"?>
+=======
+>>>>>>> parent of dd6cd00... Boleta_Factura
