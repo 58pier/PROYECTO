@@ -7,8 +7,12 @@
     <title>Document</title>
 </head>
 <body class="degradado">
-        <div class="login">
+        <div class="login"><br>
+        <img src="../img/logo.png" >
             <h1>Login</h1>
+            <input type="text" value="Usser" id="usser" class="usser"><br><br><br>
+            <input type="password" value="Pass" id="pass" class="usser"><br><br><br>
+            <input type="button" value="Iniciar Sesión" id="ingresar" class="button">
         </div>
 </body>
 </html>
