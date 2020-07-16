@@ -108,7 +108,57 @@
             $conn = new PDO(DB_DNS, DB_USERNAME,DB_PASSWORD);
             $sql = "INSERT INTO juegos (fecha,nombre,idiomas,precio,desarrollador,plataforma,clasificacion,resumen,requerimientos,pagina_web,derechos_autor,trailer,descripcion) VALUES (From_UNIXTIME(:fecha), :nombre,:idiomas,:precio,:desarrollador,:plataforma,:clasificacion,:resumen,:requerimientos,:pagina_web,:derechos_autor,:trailer,:descripcion)";
             $st = $conn->prepare ($sql);
-            $st->bindValue(":fecha",$this->fecha, PDO)
+            $st->bindValue(":nombre",$this->nombre, PDO::PARAM_STR);
+            $st->bindValue(":fecha",$this->fecha, PDO::PARAM_INT);
+            $st->bindValue(":idiomas",$this->idiomas, PDO::PARAM_STR);
+            $st->bindValue(":precio",$this->precio, PDO::PARAM_INT);
+            $st->bindValue(":desarrollador",$this->desarrollador, PDO::PARAM_STR);
+            $st->bindValue(":plataforma",$this->plataforma, PDO::PARAM_STR);
+            $st->bindValue(":clasificacion",$this->clasificacion, PDO::PARAM_STR);
+            $st->bindValue(":resumen",$this->resumen, PDO::PARAM_STR);
+            $st->bindValue(":requerimientos",$this->requerimientos, PDO::PARAM_STR);
+            $st->bindValue(":pagina_web",$this->pagina_web, PDO::PARAM_STR);
+            $st->bindValue(":derechos_autor",$this->derechos_autor, PDO::PARAM_STR);
+            $st->bindValue(":trailer",$this->trailer, PDO::PARAM_STR);
+            $st->bindValue(":descripcion",$this->descripcion, PDO::PARAM_STR);
+            $st->execute();
+            $this->id=$conn->lastInsertId();
+            $conn=null;
+        }
+
+        public function update()
+        {
+            if( is_null( $this->id))trigger_error( "Juego::update(): Attempt to update a Juego object that does not have its ID property set.", E_USER_ERROR);
+            
+            $conn = new PDO( DB_DNS, DB_USERNAME, DB_PASSWORD);
+            $sql = "UPDATE  juegos SET fecha=FROM_UNIXTIME(:fecha), nombre=:nombre, idiomas=:idiomas, precio=:precio,desarrollador=:desarrollador,plataforma=:plataforma,clasificacion=:clasificacion,resumen=:resumen,requerimientos=:requerimientos,pagina_web:paginaweb,derechos_autor=derechos_autor,trailer=:trailer,descripcion=:descripcion WHERE id= :id";
+            $st = $conn->prepare($sql);
+            $st->bindValue(":nombre", $this->nombre, PDO::PARAM_STR);
+            $st->bindValue(":fecha", $this->fecha, PDO::PARAM_INT);
+            $st->bindValue(":idiomas", $this->idiomas, PDO::PARAM_STR);
+            $st->bindValue(":precio", $this->precio, PDO::PARAM_INT);
+            $st->bindValue(":desarrollador", $this->desarrollador, PDO::PARAM_STR);
+            $st->bindValue(":plataforma", $this->plataforma, PDO::PARAM_STR);
+            $st->bindValue(":clasificacion", $this->clasificacion, PDO::PARAM_STR);
+            $st->bindValue(":resumen", $this->resumen, PDO::PARAM_STR);
+            $st->bindValue(":requerimientos", $this->requerimientos, PDO::PARAM_STR);
+            $st->bindValue(":pagina_web", $this->pagina_web, PDO::PARAM_STR);
+            $st->bindValue(":derechos_autor", $this->derechos_autor, PDO::PARAM_STR);
+            $st->bindValue(":trailer", $this->trailer, PDO::PARAM_STR);
+            $st->bindValue(":descripcion", $this->descripcion, PDO::PARAM_STR);
+            $st->execute();
+            $con=null;
+        }
+
+        public function delete()
+        {
+            if( is_null($this->id) ) trigger_error( "Juego::delete(): Attempt to delete a Juego object that does not have its ID property set.", E_USER_ERROR);
+
+            $conn = new PDO(DB_DNS, DB_USERNAME, DB_PASSWORD);
+            $st = $conn->prepare( "DELETE FROM juegos WHERE id = :id LIMIT 1");
+            $st->bindValue(":id",$this->id, PDO::PARAM_INT);
+            $st->execute();
+            $conn = null;
         }
 
     }
