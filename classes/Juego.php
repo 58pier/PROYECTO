@@ -108,7 +108,7 @@
             $conn = new PDO(DB_DNS, DB_USERNAME,DB_PASSWORD);
             $sql = "INSERT INTO juegos (fecha,nombre,idiomas,precio,desarrollador,plataforma,clasificacion,resumen,requerimientos,pagina_web,derechos_autor,trailer,descripcion) VALUES (From_UNIXTIME(:fecha), :nombre,:idiomas,:precio,:desarrollador,:plataforma,:clasificacion,:resumen,:requerimientos,:pagina_web,:derechos_autor,:trailer,:descripcion)";
             $st = $conn->prepare ($sql);
-            $st->bindValue(":fecha",$this->fecha, PDO)
+            $st->bindValue(":fecha",$this->fecha, PDO);
         }
 
     }
