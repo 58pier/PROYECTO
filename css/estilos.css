@@ -249,6 +249,15 @@ form p{
     height: 20px;
     margin: 13px;
 }
+footer{
+    width: 98%;
+    height: 50px;
+    background-color: rgb(6, 15, 99);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+}
 #boton{
     margin-top: 5%;
     width: 200px;
