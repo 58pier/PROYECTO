@@ -2,6 +2,7 @@
 
 
 
+<div class="container-body">
     <h1> Accion<?php //Categoria ?> </h1>
     <div class="portada-categoria">
         <img src="">
