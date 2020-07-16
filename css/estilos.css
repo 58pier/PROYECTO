@@ -94,6 +94,52 @@ footer {
 /*Cierra Footer*/
 
 /*juego (Juan)196*/
+/*Inicia login*/
+.login {
+    text-align: center;
+    background: linear-gradient(150deg, rgb(205, 220, 72) 15%, #ffda05 70%, #d17722 94%);
+    color: white;
+    margin: 3px;
+    margin-top: 100px;
+    width: 400px;
+    margin-left: 550px;
+    height: 500px;
+    font-family: 'Courier New', Courier, monospace;
+    align-items: center;
+    border-radius: 3%;
+    -webkit-text-stroke: 1px black;
+}
+
+.usser {
+    height: 40px;
+    width: 300px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 3%;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0);
+}
+
+.button {
+    height: 60px;
+    width: 300px;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 10%;
+    color: white;
+    background-color: rgb(164, 37, 37);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+}
+
+.degradado {
+    background: linear-gradient(150deg, #53f 15%, #05d5ff 70%, #a6ffcb 94%);
+    margin-top: 0px;
+
+    align-items: center;
+    color: white;
+    min-height: 622px;
+
+}
+
+/*juego (Juan)196*/
 
 
 
