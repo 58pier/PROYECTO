@@ -112,7 +112,36 @@ function editJuego(){
 
 function deleteArticle()
 {
-    if( !$juego = Juego::getList( (int) $_Get))
+    if( !$juego = Juego::getById( (int) $_GET['articleId']))
+    {
+        header( "Location: admin/php?error=juegoNotFound");
+        return;
+    }
+    $juego->delete();
+    header( "Location: admin.php?error=juegoDeleted");
+}
+
+function listJuegos()
+{
+    $results = array();
+    $data = Juego::getList();
+    $results['juegos'] = $data['results'];
+    $results['totalRows'] = $data['totalRows'];
+    $results['pageTitle'] = "All juegos"; 
+
+    if( isset( $_GET['error']))
+    {
+        if( $_GET['error'] == "juegoNotFound") $results['errorMessage'] = "Error :Juego not found.";
+    }
+
+    if( isset($_GET['status']))
+    {
+        if( $_GET['status'] == "changesSaved") $results['statusMessage'] = "Your changes have been saved";
+        if ($_GET['status'] == "juegoDeleted") $results['statusMessage'] = "Juego Deleted";
+    }
+
+    require( TEMPLATE_PATH ."/admin/listJuegos.php");
+    
 }
 
 ?>
