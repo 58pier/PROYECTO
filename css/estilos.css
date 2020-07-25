@@ -141,103 +141,89 @@ footer {
 
 /*juego (Juan)196*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.container .title_game {
+    margin-top: -10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container .title_game .game_img img {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.container .logo_juego img {
+    width: 15%;
+    margin-top: 20px;
+    margin-left: 80px;
+}
+
+.container .resumen {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    margin-top: -16%;
+    margin-left: 300px;
+    width: 700px;
+}
+
+.container .logo_juego .resumen .compra {
+    margin-top: -120px;
+}
+
+.container .logo_juego .resumen .compra input {
+    width: 150px;
+    height: 100px;
+    margin-left: 105%;
+}
+
+.container .acerca {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    margin-left: 80px;
+    margin-top: 80px;
+}
+
+.container .language {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    margin-left: 80px;
+}
+
+.container .descripcion {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    margin-left: 80px;
+}
+
+.container .descripcion .descr_text {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.container .requerimientos {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    margin-left: 80px;
+    margin-top: 80px;
+}
+
+.container .derechos_de_autor {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.container .acerca .tabla1 {
+    width: 90%;
+    text-align: center;
+}
+
+.container .acerca .tabla1,
+th {
+    border: 2px solid black;
+}
+
+/*juego Cierre(Juan)196*/
 /*manuel*/
 /*manuel*/
 /*BOLETA*/
