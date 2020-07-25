@@ -12,8 +12,8 @@
     <div class="login"><br>
         <img src="../../img/logo.png">
         <h1>Login</h1>
-        <input type="text" value="Usser" id="usser" class="usser"><br><br><br>
-        <input type="password" value="Pass" id="pass" class="usser"><br><br><br>
+        <input type="text" value="Usser" id="usser" class="usser" name="usser" size="15" onclick="if(this.value=='Usser'){ this.value=''}" onblur="if(this.value=='') {this.value='Usser'}"><br><br><br>
+        <input type="password" value="Pass" id="pass" class="usser" name="pass" size="15" onclick="if(this.value=='Pass'){ this.value=''}" onblur="if(this.value=='') {this.value='Pass'}"><br><br><br>
         <input type="button" value="Iniciar Sesión" id="ingresar" class="button">
     </div>
 </body>
