@@ -38,12 +38,15 @@
         $results['totalRows'] = $data['totalRows'];
         $results['pageTitle'] = "Juego Archive | Widgets News";
         require(TEMPLATE_PATH . "/archive.php");
-        
-    
     }
+    
+    function homepage(){
 
-
-
-
-
+        $results = array();
+        $data = Juego::getList( HOMEPAGE_NUM_JUEGOS);
+        $results['juegos'] = $data['results'];
+        $results['totalRows'] = $data['totalRows'];
+        $results['pageTitle'] = "Widget News";
+        require (TEMPLATE_PATH . "/homepage.php");
+    }
 ?>
