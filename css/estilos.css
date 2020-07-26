@@ -108,7 +108,8 @@ footer {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-background-size: contain;
+    background-size: contain;
+    margin-bottom: 156px;
 }
 
 .usser {
@@ -122,6 +123,7 @@ background-size: contain;
     font-size: 30px;
     height: 55px;
     width: 250px;
+    margin-bottom: 40px;
     font-size: 25px;
     font-family: 'Courier New', Courier, monospace;
     border-radius: 10%;
