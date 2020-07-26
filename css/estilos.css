@@ -402,6 +402,72 @@ input {
     width: 220px;
     height: 25px;
 }
+/*LISTA DE JUEGOS*/
+
+.lista_juegos{
+    width: 90%;
+    background-position: center;
+    margin: auto;
+    background-color: cornsilk;
+}
+
+.titulo_lista{
+    width: 80%;
+    height: 100px;
+    background-position: center;
+    margin: auto;
+    background-color: rgb(25, 8, 99);
+}
+
+.titulo_lista h2{
+    text-align: center;
+    padding: 30px;
+    color: white;
+}
+
+.buscar_lista{
+    width: 258px;
+    height: 60px;
+    display: flex;
+    margin-left: 78%;
+}
+
+#buscar_texto{
+    margin-top: 15px;
+    width: 150px;
+    height: 29px;
+} 
+
+#boton_buscar{
+    margin-top: 15px;
+    width: 100px;
+    height: 35px;
+    color: white;
+    background-color: rgb(25, 8, 99);
+}
+
+#boton_buscar:hover {
+    background-color: rgb(37, 15, 161);
+}
+
+.lista_lista{
+    width: 100%;
+    height: 600px;
+    background-color: rgb(171, 189, 192);
+}
+
+#añadir_lista{
+    margin-top: 15px;
+    width: 100px;
+    height: 35px;
+    color: white;
+    background-color: rgb(25, 8, 99);
+}
+
+#añadir_lista:hover {
+    background-color: rgb(37, 15, 161);
+}
+/*fin lista juegos*/
 
 
 
