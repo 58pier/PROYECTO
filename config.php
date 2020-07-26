@@ -27,7 +27,7 @@
     function handleException($exception)
     {
         echo "Lo sentimos, tenemos un problema. Por favor intente mas tarde";
-        error_log($exception->getMessage());
+        echo($exception->getMessage());
     }
 
     set_Exception_handler('handleException');

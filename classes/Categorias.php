@@ -1,6 +1,6 @@
 <?php
 
-    class Category
+class Category
 {
 
 public $id = null;
@@ -101,3 +101,4 @@ public function delete() {
 }
 
 }
+?>

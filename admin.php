@@ -178,8 +178,76 @@ function listCategorias()
     require( TEMPLATE_PATH . "/admin/listCategorias.php");
 }
 
-function new Category()
+function newCategoria()
 {
-    $results
+    $results = array();
+    $results['pageTitle'] = "Nueva Categoria de Juego";
+    $results['formAction'] = "newCategoria";
+
+    if( isset( $_POST['saveChanges']))
+    {
+        $categoria = new Category;
+        $categoria->storeFormValues( $_POST);
+        $categoria->insert();
+        header( "Location: admin.php?action=listCategorias&status=changesSaved");
+    }
+    elseif( isset( $_POST['cancel']))
+    {
+        header( "Location: admin.php?action=listCategorias");
+    }
+    else
+    {
+        $results['categoria'] = new Category;
+        require( TEMPLATE_PATH . "/admin/editCategoria.php");
+    }
+}
+
+function editCategoria()
+{
+    $results = array();
+    $results['pageTitle'] = "Editar Categoria de Juego";
+    $results['formAction'] = "editCategoria";
+
+    if( isset( $_POST['saveChanges']))
+    {
+        if( !$categoria = Category::getById( (int)$_POST['categoriaId']))
+        {
+            header( "Location: admin.php?action=listCategorias&error=categoriaNotFound");
+            return;
+        }
+
+        $categoria->storeFormValues( $_POST);
+        $categoria->update();
+        header( "Location: admin.php?Action=listCategorias&status=changesSaved");
+    }
+    elseif( isset( $_POST['cancel']))
+    {
+        header( "Location: admin.php?action=listCategorias");
+    }
+    else
+    {
+        $results['categoria'] = Category::getById( (int)$_GET['categoriaId']);
+        require( TEMPLATE_PATH . "/admin/editCategoria.php");
+    }
+}
+
+function deleteCategoria()
+{
+    if( !$categoria = Category::getById( (int)$_GET['categoriaId']))
+    {
+        header( "Location: admin.php?action=listCategorias&error=categoriaNotFound");
+    }
+    
+    $juegos = Juego::getList( 1000000 , $categoria->id);
+
+    if( $juegos['totalRows'] > 0)
+    {
+        header( "Location: admin.php?action=listCategories&error=categoriaContainsJuegos");
+        return;
+    }
+
+    $categoria->delete();
+    header( "Location: admin.php?action=listCategorias&status=categoriaDeleted");
+
 }
 ?>
