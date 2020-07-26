@@ -1,39 +1,39 @@
 <?php include "include/header.php" ?>
 <div class="lista_juegos">
-   <div class="titulo_lista">
-    <h2>LISTA DE JUEGOS</h2>
-   </div>
-   <div class="buscar_lista">
-      <div class="buscar_producto">
-          <input id="buscar_texto" type="text"> 
-      </div>
-      <div>
-          <input id="boton_buscar" type="submit" size="" value="Buscar">
-      </div>
-   </div>
-   <div class="lista_lista">
+    <div class="titulo_lista">
+        <h2>LISTA DE JUEGOS</h2>
+    </div>
+    <?php if (isset($results['errorMessage'])) { ?>
+        <div class="errorMessage"><?php echo $results['errorMessage'] ?></div>
+    <?php } ?>
 
-       <table>
-            <?php //for de i=0 para i<cantidad de productos i++
-            ?>
+    <?php if (isset($results['statusMessage'])) { ?>
+        <div class="statusMessage"><?php echo $results['statusMessage'] ?></div>
+    <?php } ?>
+
+    <div class="lista_lista">
+
+        <table>
+
             <tr>
-                <?php  /*FOR EACH */ ?>
-
-                <td>
-                    <div class="tabla_juegos">
-                        <img src="">
-                        <?php //información 
-                        ?>
-                    </div>
-                </td>
-                <?php /*Termina el for */ ?>
+                <th>Fecha de Publicacion</th>
+                <th>Juego</th>
+                <th>Categoria</th>
             </tr>
-            <?php //termina el for de i 
-            ?>
+
+            <?php foreach ($results['juegos'] as $juego) { ?>
+
+                <tr onclick="location='admin.php?action=editJuego&amp;juegoId=<?php echo $juego->id ?>'">
+                    <td> <?php echo date('j M Y', $juego->fecha) ?></td>
+                    <td> <?php echo $juego->nombre ?></td>
+                    <td> <?php echo $results['categorias'][$juego->categoriaId]->nombre ?></td>
+                </tr>
+            <?php } ?>
         </table>
 
-   </div>
+    </div>
+    <p> <?php echo $results['totalRows'] ?> juego<?php echo ($results['totalRows'] != 1) ? 's' : '' ?> en total</p>
 
-   <input id="añadir_lista" type="submit" size="" value="AÑADIR">
+    <p><a href="admin.php?action=newJuego"> Añadir un nuevo juego</a></p>
 </div>
 <?php include "templates/include/footer.php" ?>
