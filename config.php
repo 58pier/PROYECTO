@@ -1,6 +1,6 @@
 <?php 
 
-    ini_set("display_errors",true); 
+    ini_set("display_errors",false); 
     date_default_timezone_get("America/Lima");
 
     define("DB_DNS","mysql:localhost;dbname=proyecto");
