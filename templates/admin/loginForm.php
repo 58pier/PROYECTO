@@ -22,8 +22,8 @@
             <?php } ?>
 
 
-            <input type="text" value="Usser" id="username" class="usser" name="username" size="15" onclick="if(this.value=='Usser'){ this.value=''}" onblur="if(this.value=='') {this.value='Usser'}"><br><br><br>
-            <input type="password" value="Pass" id="password" class="usser" name="password" size="15" onclick="if(this.value=='Pass'){ this.value=''}" onblur="if(this.value=='') {this.value='Pass'}"><br><br><br>
+            <input type="text" placeholder="Usser" id="username" class="usser" name="username" size="15"><br><br><br>
+            <input type="password" placeholder="Pass" id="password" class="usser" name="password" size="15" ><br><br><br>
             <input type="submit" name="login" value="Login" id="ingresar" class="button">
         </form>
 
