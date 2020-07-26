@@ -1,9 +1,9 @@
 <?php 
 
-    ini_set("display_errors",false); 
+    ini_set("display_errors",true); 
     date_default_timezone_get("America/Lima");
 
-    define("DB_DNS","mysql:localhost;dbname=proyecto");
+    define("DB_DNS","mysql:host=localhost;dbname=proyecto");
 
     define("DB_USERNAME","root");
     define("DB_PASSWORD","");
@@ -21,7 +21,7 @@
 
 
     require(CLASS_PATH. "/Juego.php");
-    require(CLASS_PATH . "/Categorias.php");
+    require(CLASS_PATH . "/Categoria.php");
 
 
     function handleException($exception)

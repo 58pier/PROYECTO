@@ -32,7 +32,7 @@ public static function getById( $id ) {
     if ( $row ) return new Category( $row );
 }
 
-public static function getList( $numRows=1000000 ) {
+public static function getList( $numRows= 1000000 ) {
     $conn = new PDO( DB_DNS, DB_USERNAME, DB_PASSWORD );
     $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM categorias
             ORDER BY nombre ASC LIMIT :numRows";
@@ -43,8 +43,8 @@ public static function getList( $numRows=1000000 ) {
     $list = array();
 
     while ( $row = $st->fetch() ) {
-        $category = new Category( $row );
-        $list[] = $category;
+        $categoria = new Category( $row );
+        $list[] = $categoria;
     }
 
     // Now get the total number of categorias that matched the criteria

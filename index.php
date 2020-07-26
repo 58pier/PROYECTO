@@ -18,7 +18,7 @@
     {
         $results = array();
         $categoriaId = ( isset( $_GET['categoriaId']) && $_GET['categoriaId']) ? (int) $_GET['categoriaId'] : null;
-        $results = Juego::getList(100000 , $results['category'] ? $results['categoriaId']->id : null );
+        $results = Juego::getList(100000 , $results['categoria'] ? $results['categoriaId']->id : null );
         $data = Juego::getList();
         $result['juegos'] = $data ['results'];
         $results['totalRows'] = $data['totalRows'];

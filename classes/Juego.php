@@ -85,8 +85,8 @@
         public static function getList ($numRows=1000000, $categoriaId=null)
         {
             $conn = new PDO( DB_DNS, DB_USERNAME, DB_PASSWORD);
-            $categoryClause = $categoriaId ? "WHERE categoriaId = :categoriaId" : "";
-            $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIXTIMESTAMP(fecha) AS fecha FROM juegos $categoryClause
+            $categoriaClause = $categoriaId ? "WHERE categoriaId = :categoriaId" : "";
+            $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIXTIMESTAMP(fecha) AS fecha FROM juegos $categoriaClause
                     ORDER BY fecha DESC LIMIT :numRows";
             $st = $conn->prepare( $sql);
             $st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
