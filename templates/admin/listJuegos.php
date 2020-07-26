@@ -36,4 +36,4 @@
 
    <input id="añadir_lista" type="submit" size="" value="AÑADIR">
 </div>
-<?php include "include/footer.php" ?>
+<?php include "templates/include/footer.php" ?>

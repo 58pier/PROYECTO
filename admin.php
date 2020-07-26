@@ -16,6 +16,9 @@ switch( $action)
     case 'login':
         login();
         break;
+    case 'logout':
+        logout();
+        break;
     case 'newJuego':
         newJuego();
         break;
@@ -56,12 +59,12 @@ function login()
         else
         {
             $results['errorMessage'] = "Usuario o contraseña incorrecta. Intente de nuevo";
-            require( TEMPLATE_PATH . "/admin/login.php");
+            require( TEMPLATE_PATH . "/admin/loginForm.php");
         }
     } 
     else
     {
-        require (TEMPLATE_PATH . "/admin/login.php");
+        require (TEMPLATE_PATH . "/admin/loginForm.php");
     }
 }
 

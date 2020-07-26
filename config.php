@@ -16,8 +16,8 @@
     define("ADMIN_USERNAME","root");
     define("ADMIN_PASSWORD","admin");
 
-    define("ARTICLE_IMAGE_PATH", "juegos/img");
-    define("ARTICLE_VIDEO_PATH", "juegos/videos");
+    define("JUEGO_IMAGE_PATH", "juegos/img");
+    define("JUEGO_VIDEO_PATH", "juegos/videos");
 
 
     require(CLASS_PATH. "/Juego.php");
