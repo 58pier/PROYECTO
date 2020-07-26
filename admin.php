@@ -25,6 +25,18 @@ switch( $action)
     case 'deleteJuego':
         deleteJuego();
         break;
+    case 'listCategorias':
+        listCategorias();
+        break;
+    case 'newCategoria':
+        newCategoria();
+        break;
+    case 'editCategoria':
+        editCategoria();
+        break;
+    case 'deleteCategoria':
+        deleteCategoria();
+        break;
     default:
         listJuegos();
 }
@@ -110,7 +122,7 @@ function editJuego(){
     }
 }
 
-function deleteArticle()
+function deleteJuego()
 {
     if( !$juego = Juego::getById( (int) $_GET['articleId']))
     {
@@ -144,4 +156,30 @@ function listJuegos()
     
 }
 
+function listCategorias()
+{
+    $results = array();
+    $data = Category::getList();
+    $results['categorias'] = $data['results'];
+    $results['totalRows'] = $data['totalRows'];
+    $results['pageTitle'] = "Categorias de Juegos";
+
+    if( isset( $_GET['error']))
+    {
+        if( $_GET['error'] == "categoriaNotFound" ) $results['errorMessage'] = "Error: Categoria no encontrada.";
+        if( $_GET['error'] == "categoriaContainsJuegos") $results['errorMessage'] = "Error: Categoria contiene articulos. Elimina los articulos, o alignalos a otra categoria antes de eliminar esta categoria.";
+    }
+
+    if( isset( $_GET['status']))
+    {
+        if( $_GET['status'] == "changesSaved") $results['statusMessage'] = "Tus cambios han sido guardados";
+        if( $_GET['status'] == "categoriaDeleted") $results['statusMessage'] = "Categoria eliminada.";
+    }
+    require( TEMPLATE_PATH . "/admin/listCategorias.php");
+}
+
+function new Category()
+{
+    $results
+}
 ?>

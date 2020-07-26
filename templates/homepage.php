@@ -1,7 +1,21 @@
 <?php include "include/header.php" ?>
 
 <div class="slider">
+<?php 
+$src;
+foreach ( $results['articles'] as $article ) {
+$trailer = $article->trailer;
 
+$src="../juegos/img/".    
+    ?>
+    <div class="slide">
+        <div class="slide-img">
+            <img src="../juegos/img/"
+        </div>
+        <div class="slide-title">
+
+        </div>
+    </div>   
 </div>
 
 <div class="container-categoria">

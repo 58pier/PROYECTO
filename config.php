@@ -16,7 +16,13 @@
     define("ADMIN_USERNAME","root");
     define("ADMIN_PASSWORD","admin");
 
+    define("ARTICLE_IMAGE_PATH", "juegos/img");
+    define("ARTICLE_VIDEO_PATH", "juegos/videos");
+
+
     require(CLASS_PATH. "/Juego.php");
+    require(CLASS_PATH . "/Categorias.php");
+
 
     function handleException($exception)
     {
