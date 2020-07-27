@@ -87,9 +87,8 @@
         
             $conn = new PDO( DB_DNS, DB_USERNAME, DB_PASSWORD);
             $categoryClause = $categoriaId ? "WHERE categoriaId = :categoriaId" : "";
-            $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIXTIMESTAMP(fecha) AS fecha
-                    FROM juegos $categoryClause
-                    ORDER BY fecha DESC LIMIT :numRows";
+            $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM juegos $categoryClause
+                    ORDER BY nombre DESC LIMIT :numRows";
             $st = $conn->prepare( $sql);
             $st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
             if( $categoriaId) $st->bindValue( ":categoriaId", $categoriaId, PDO::PARAM_INT);
