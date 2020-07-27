@@ -34,6 +34,6 @@
     </div>
     <p> <?php echo $results['totalRows'] ?> juego<?php echo ($results['totalRows'] != 1) ? 's' : '' ?> en total</p>
 
-    <p><a href="admin.php?action=newJuego"> Añadir un nuevo juego</a></p>
+    <p><a href="admin.php?action=newJuego"> Añadir un nuevo Juego</a></p>
 </div>
 <?php include "templates/include/footer.php" ?>

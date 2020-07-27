@@ -18,9 +18,9 @@
     {
         $results = array();
         $categoriaId = ( isset( $_GET['categoriaId']) && $_GET['categoriaId']) ? (int) $_GET['categoriaId'] : null;
-        $results = Juego::getList(100000 , $results['categoria'] ? $results['categoriaId']->id : null );
-        $data = Juego::getList();
-        $result['juegos'] = $data ['results'];
+        $results['categoria'] = Category::getById($categoriaId);
+        $data = Juego::getList(100000 , $results['categoria'] ? $results['categoriaId']->id : null );
+        $results['juegos'] = $data ['results'];
         $results['totalRows'] = $data['totalRows'];
         $data = Category::getList();
         $results['categorias'] = array();
@@ -39,7 +39,7 @@
         }
 
         $results = array();
-        $result['juegos'] = Juego::getById( (int)$_GET["juegoId"]);
+        $results['juegos'] = Juego::getById( (int)$_GET["juegoId"]);
         $results['categoria'] = Category::getById( $results['juego']->categoriaId);
         $results['pageTitle'] = $results['juego']->nombre ."Juego Archive | Widgets News";
         require(TEMPLATE_PATH . "/archive.php");

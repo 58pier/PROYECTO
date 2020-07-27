@@ -102,7 +102,7 @@ function newJuego()
 function editJuego(){
 
     $results=array();
-    $resuls['pageTitle'] = "Editar Juego";
+    $results['pageTitle'] = "Editar Juego";
     $results['formAction'] = "editJuego";
 
     if( isset($_POST['saveChanges']))

@@ -82,11 +82,13 @@
             if ( $row) return new Juego ($row);
         }
 
-        public static function getList ($numRows= 1000000, $categoriaId=null)
-        {
+    public static function getList($numRows = 1000000, $categoriaId = null)
+    {
+        
             $conn = new PDO( DB_DNS, DB_USERNAME, DB_PASSWORD);
-            $categoriaClause = $categoriaId ? "WHERE categoriaId = :categoriaId" : "";
-            $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIXTIMESTAMP(fecha) AS fecha FROM juegos $categoriaClause
+            $categoryClause = $categoriaId ? "WHERE categoriaId = :categoriaId" : "";
+            $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIXTIMESTAMP(fecha) AS fecha
+                    FROM juegos $categoryClause
                     ORDER BY fecha DESC LIMIT :numRows";
             $st = $conn->prepare( $sql);
             $st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
@@ -104,7 +106,7 @@
             $totalRows = $conn->query($sql)->fetch();
             $conn = null;
             return (array ( "results" => $list, "totalRows" => $totalRows[0]));
-        }
+    }
 
         public function insert(){
             if( !is_null( $this->id)) trigger_error( "Juego::insert() Attempt to insert an Article object that already has its ID property set (to $this->id).", E_USER_ERROR);
