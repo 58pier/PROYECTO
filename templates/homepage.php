@@ -1,39 +1,55 @@
 <?php include "include/header.php" ?>
 
 <div class="slider">
-<?php foreach ( $results['juegos'] as $juego) { ?>
-    <div class="slide">
-        <a href=".?action=viewJuego&amp;juegoId=<?php echo $juego->id?>">
-            <div class="slide-img">
-                <img src="<?php echo JUEGO_IMAGE_PATH .($juego->trailer)?>">
-            </div>
-            <div class="slide-title">
-                <span> <?php echo ($juego->nombre) ?></span>
-            </div>
-            </div>
-        </a>  
-<?php } ?> 
-</div>
-
-<?php foreach( $results['categorias'] as $categoria) { ?>
-<div class="container-categoria">
-    <h3 class="category"> <a href=".?action=archive&amp;categoriaId=<?php echo $categoria->nombre?>"><?php echo htmlspecialchars($categoria->nombre) ?></a> </h3>
-    <div class="container-juego">
-        <table> 
-            <tr> 
-                  <?php  /*FOR EACH -> articulo hasta 4 */ ?>
-
-                <td> 
-                <div class="juego-homepage">
-                    <img src="">
+    <?php foreach ($results['juegos'] as $juego) { ?>
+        <div class="slide">
+            <a href=".?action=viewJuego&amp;juegoId=<?php echo $juego->id ?>">
+                <div class="slide-img">
+                    <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($juego->trailer) ?>">
                 </div>
-                </td>
-                <?php /*Termina el for */?>
-            </tr>
-        </table>
-        <h3><a>VER MAS</a></h3>
-    </div>
+                <div class="slide-title">
+                    <span> <?php echo ($juego->nombre) ?></span>
+                </div>
+        </div>
+        </a>
+    <?php } ?>
 </div>
-<?php } ?>
 
-<?php include "include/footer.php"?>
+<?php foreach ($results['categorias'] as $categoria) { ?>
+    <div class="container-categoria">
+        <h3 class="category"> <a href=".?action=archive&amp;categoriaId=<?php echo $categoria->nombre ?>"><?php echo htmlspecialchars($categoria->nombre) ?></a> </h3>
+        <div class="container-juego">
+            <?php foreach ($results['juegos'] as $juego) { ?>
+                <?php if ($juego->categoriaId == $categoria->id) { ?>
+                    <div class="slide-juego">
+                        <a href=".?action=viewJuego&amp;juegoId=<?php echo $juego->id ?>">
+                            <div class="slide-img">
+                                <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($juego->trailer) ?>">
+                            </div>
+                            <div class="slide-title">
+                                <span> <?php echo ($juego->nombre) ?></span>
+                            </div>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+            <h3><a href=".?action=archive&amp;categoriaId=<?php echo $categoria->nombre ?>">VER MAS</a></h3>
+        </div>
+    </div>
+<?php } ?>
+<?php include "include/final-divs.php" ?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".slider").slick({
+            lazyLoad: 'ondemand', // ondemand progressive anticipated
+            infinite: true
+        });
+        $(".container-juego").slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+        });
+    });
+</script>
+
+<?php include "include/footer.php" ?>

@@ -36,4 +36,4 @@
 
     <p><a href="admin.php?action=newJuego"> Añadir un nuevo Juego</a></p>
 </div>
-<?php include "templates/include/footer.php" ?>
+<?php include "templates/admin/include/footer.php" ?>

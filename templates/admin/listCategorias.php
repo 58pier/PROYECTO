@@ -33,4 +33,4 @@
 
     <p><a href="admin.php?action=newCategoria"> Añadir una nueva categoria</a></p>
 </div>
-<?php include "templates/include/footer.php" ?>
+<?php include "templates/admin/include/footer.php" ?>

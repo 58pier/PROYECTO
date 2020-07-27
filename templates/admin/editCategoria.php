@@ -28,4 +28,4 @@
 <?php if( $results['categoria']->id) { ?>
     <p> <a href="admin.php?action=deleteCategoria&amp;categoriaId=<?php echo $results['categoria']->id?>" onclick="return confirm('Eliminar esta categoria? )">Eliminar esta categoria</a></p>
 <?php } ?>
-<?php include "templates/include/footer.php" ?>
+<?php include "templates/admin/include/footer.php" ?>

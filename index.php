@@ -54,7 +54,7 @@
         $data = Category::getList();
         $results['categorias'] = array();
         foreach ( $data['results'] as $categoria) $results['categorias'] [$categoria->id] = $categoria;
-        $results['pageTitle'] = "Widget News";
+        $results['pageTitle'] = "GAMER STORE JMP";
         require (TEMPLATE_PATH . "/homepage.php");
     }
 ?>

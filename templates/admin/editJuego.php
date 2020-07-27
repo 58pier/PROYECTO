@@ -70,4 +70,4 @@
     <p><a href="admin.php?action=deleteJuego&amp;juegoId=<?php echo $results['juego']->id ?>" onclick="return confirm('Eliminar este juego?)">Eliminar este Juego</a></p>
 <?php } ?>
 
-<?php include "templates/include/footer.php" ?>
+<?php include "templates/admin/include/footer.php" ?>
