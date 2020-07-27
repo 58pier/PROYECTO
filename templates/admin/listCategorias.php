@@ -3,13 +3,7 @@
     <div class="titulo_lista">
         <h2>LISTA DE CATEGORIAS</h2>
     </div>
-    <?php if (isset($results['errorMessage'])) { ?>
-        <div class="errorMessage"><?php echo $results['errorMessage'] ?></div>
-    <?php } ?>
 
-    <?php if (isset($results['statusMessage'])) { ?>
-        <div class="statusMessage"><?php echo $results['statusMessage'] ?></div>
-    <?php } ?>
 
     <div class="lista_lista">
 
@@ -28,6 +22,13 @@
         </table>
 
     </div>
+    <?php if (isset($results['errorMessage'])) { ?>
+        <div class="errorMessage"><?php echo $results['errorMessage'] ?></div>
+    <?php } ?>
+
+    <?php if (isset($results['statusMessage'])) { ?>
+        <div class="statusMessage"><?php echo $results['statusMessage'] ?></div>
+    <?php } ?>
     <p> <?php echo $results['totalRows'] ?> categoria<?php echo ($results['totalRows'] != 1) ? 's' : '' ?> en total</p>
 
     <p><a href="admin.php?action=newCategoria"> Añadir una nueva categoria</a></p>

@@ -85,7 +85,7 @@ function newJuego()
         $juego = new Juego;
         $juego->storeFormValues( $_POST);
         $juego->insert();
-        header( "Location: admnin.php?status=changesSaved");
+        header( "Location: admin.php?status=changesSaved");
     } elseif( isset($_POST['cancel']))
     {
         header( "Location: admin.php");
@@ -93,6 +93,8 @@ function newJuego()
     else{
 
         $results['juego'] = new Juego;
+        $data = Category::getList();
+        $results['categorias'] = $data['results'];
         require(TEMPLATE_PATH . "/admin/editJuego.php");
     }
 }
@@ -100,14 +102,14 @@ function newJuego()
 function editJuego(){
 
     $results=array();
-    $resuls['pageTitle'] = "Edit Juego";
+    $resuls['pageTitle'] = "Editar Juego";
     $results['formAction'] = "editJuego";
 
     if( isset($_POST['saveChanges']))
     {
         if( !$juego = Juego::getById( (int)$_POST['juegoId']))
         {
-            header( "Location: admin.php?error = juegoNotFound");
+            header( "Location: admin.php?error=juegoNotFound");
             return;
         }
         $juego->storeFormValues( $_POST);
@@ -120,16 +122,18 @@ function editJuego(){
     }
     else
     {
-        $results['juego'] = Juego::getList((int) $_GET['juegoId']);
+        $results['juego'] = Juego::getById((int) $_GET['juegoId']);
+        $data = Category::getList();
+        $results['categorias'] = $data['results'];
         require( TEMPLATE_PATH . "/admin/editJuego.php");
     }
 }
 
 function deleteJuego()
 {
-    if( !$juego = Juego::getById( (int) $_GET['articleId']))
+    if( !$juego = Juego::getById( (int) $_GET['juegoId']))
     {
-        header( "Location: admin/php?error=juegoNotFound");
+        header( "Location: admin.php?error=juegoNotFound");
         return;
     }
     $juego->delete();
@@ -142,7 +146,10 @@ function listJuegos()
     $data = Juego::getList();
     $results['juegos'] = $data['results'];
     $results['totalRows'] = $data['totalRows'];
-    $results['pageTitle'] = "All juegos"; 
+    $data = Category::getList();
+    $results['categorias'] = array();
+    foreach ( $data['results'] as $categoria) $results['categorias'][$categoria->id] = $categoria;
+    $results['pageTitle'] = "Todos los  juegos"; 
 
     if( isset( $_GET['error']))
     {

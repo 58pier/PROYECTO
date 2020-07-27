@@ -37,10 +37,10 @@
         {
             if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
             if ( isset( $data['nombre'] ) ) $this->nombre = $data['nombre'];
-            if ( isset( $data['fecha'] ) ) $this->fecha = (int) $data['id'];
+            if ( isset( $data['fecha'] ) ) $this->fecha = (int) $data['fecha'];
             if ( isset( $data['idiomas'] ) ) $this->idiomas = $data['idiomas'];
             if ( isset( $data['precio'] ) ) $this->precio = (int) $data['precio'];
-            if ( isset( $data['desarrollador'] ) ) $this->desarrollador = $data['desarrolador'];
+            if ( isset( $data['desarrollador'] ) ) $this->desarrollador = $data['desarrollador'];
             if ( isset( $data['plataforma'] ) ) $this->plataforma = $data['plataforma'];
             if ( isset( $data['clasificacion'] ) ) $this->clasificacion = $data['clasificacion'];
             if ( isset( $data['resumen'] ) ) $this->resumen = $data['resumen'];
@@ -82,7 +82,7 @@
             if ( $row) return new Juego ($row);
         }
 
-        public static function getList ($numRows=1000000, $categoriaId=null)
+        public static function getList ($numRows= 1000000, $categoriaId=null)
         {
             $conn = new PDO( DB_DNS, DB_USERNAME, DB_PASSWORD);
             $categoriaClause = $categoriaId ? "WHERE categoriaId = :categoriaId" : "";
@@ -110,7 +110,7 @@
             if( !is_null( $this->id)) trigger_error( "Juego::insert() Attempt to insert an Article object that already has its ID property set (to $this->id).", E_USER_ERROR);
             
             $conn = new PDO(DB_DNS, DB_USERNAME,DB_PASSWORD);
-            $sql = "INSERT INTO juegos (fecha,nombre,idiomas,precio,desarrollador,plataforma,clasificacion,resumen,requerimientos,pagina_web,derechos_autor,trailer,descripcion) VALUES (From_UNIXTIME(:fecha), :nombre,:idiomas,:precio,:desarrollador,:plataforma,:clasificacion,:resumen,:requerimientos,:pagina_web,:derechos_autor,:trailer,:descripcion)";
+            $sql = "INSERT INTO juegos (nombre,fecha,idiomas,precio,desarrollador,plataforma,clasificacion,resumen,requerimientos,pagina_web,derechos_autor,trailer,descripcion, categoriaId) VALUES (:nombre, From_UNIXTIME(:fecha),:idiomas,:precio,:desarrollador,:plataforma,:clasificacion,:resumen,:requerimientos,:pagina_web,:derechos_autor,:trailer,:descripcion, :categoriaId)";
             $st = $conn->prepare ($sql);
             $st->bindValue(":nombre",$this->nombre, PDO::PARAM_STR);
             $st->bindValue(":fecha",$this->fecha, PDO::PARAM_INT);
@@ -137,7 +137,7 @@
             if( is_null( $this->id))trigger_error( "Juego::update(): Attempt to update a Juego object that does not have its ID property set.", E_USER_ERROR);
             
             $conn = new PDO( DB_DNS, DB_USERNAME, DB_PASSWORD);
-            $sql = "UPDATE  juegos SET fecha=FROM_UNIXTIME(:fecha), nombre=:nombre, idiomas=:idiomas, precio=:precio,desarrollador=:desarrollador,plataforma=:plataforma,clasificacion=:clasificacion,resumen=:resumen,requerimientos=:requerimientos,pagina_web:paginaweb,derechos_autor=derechos_autor,trailer=:trailer,descripcion=:descripcion, categoriaId=:categoriaId  WHERE id= :id";
+            $sql = "UPDATE  juegos SET nombre=:nombre, fecha=FROM_UNIXTIME(:fecha), idiomas=:idiomas, precio=:precio,desarrollador=:desarrollador,plataforma=:plataforma,clasificacion=:clasificacion,resumen=:resumen,requerimientos=:requerimientos,pagina_web=:pagina_web,derechos_autor=:derechos_autor,trailer=:trailer,descripcion=:descripcion, categoriaId=:categoriaId  WHERE id= :id";
             $st = $conn->prepare($sql);
             $st->bindValue(":nombre", $this->nombre, PDO::PARAM_STR);
             $st->bindValue(":fecha", $this->fecha, PDO::PARAM_INT);

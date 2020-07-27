@@ -5,7 +5,7 @@
     <div class="slide">
         <a href=".?action=viewJuego&amp;juegoId=<?php echo $juego->id?>">
             <div class="slide-img">
-                <img src="<?php echo JUEGO_IMAGE_PATH .($article->trailer)?>">
+                <img src="<?php echo JUEGO_IMAGE_PATH .($juego->trailer)?>">
             </div>
             <div class="slide-title">
                 <span> <?php echo ($juego->nombre) ?></span>
