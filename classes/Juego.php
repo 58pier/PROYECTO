@@ -73,7 +73,7 @@
         public static function getById( $id)
         {
             $conn = new PDO( DB_DNS, DB_USERNAME, DB_PASSWORD);
-            $sql = "SELECT *, UNIXTIMESTAMP(fecha) AS fecha FROM juegos WHERE id = :id";
+            $sql = "SELECT * , UNIX_TIMESTAMP(fecha) AS fecha FROM juegos WHERE id = :id";
             $st = $conn->prepare( $sql);
             $st->bindValue( ":id", $id, PDO::PARAM_INT);
             $st->execute();
@@ -87,8 +87,9 @@
         
             $conn = new PDO( DB_DNS, DB_USERNAME, DB_PASSWORD);
             $categoryClause = $categoriaId ? "WHERE categoriaId = :categoriaId" : "";
-            $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM juegos $categoryClause
-                    ORDER BY nombre DESC LIMIT :numRows";
+            $sql = "SELECT SQL_CALC_FOUND_ROWS * , UNIX_TIMESTAMP(fecha) AS fecha 
+                    FROM juegos $categoryClause
+                    ORDER BY fecha DESC LIMIT :numRows";
             $st = $conn->prepare( $sql);
             $st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
             if( $categoriaId) $st->bindValue( ":categoriaId", $categoriaId, PDO::PARAM_INT);
@@ -111,7 +112,7 @@
             if( !is_null( $this->id)) trigger_error( "Juego::insert() Attempt to insert an Article object that already has its ID property set (to $this->id).", E_USER_ERROR);
             
             $conn = new PDO(DB_DNS, DB_USERNAME,DB_PASSWORD);
-            $sql = "INSERT INTO juegos (nombre,fecha,idiomas,precio,desarrollador,plataforma,clasificacion,resumen,requerimientos,pagina_web,derechos_autor,trailer,descripcion, categoriaId) VALUES (:nombre, From_UNIXTIME(:fecha),:idiomas,:precio,:desarrollador,:plataforma,:clasificacion,:resumen,:requerimientos,:pagina_web,:derechos_autor,:trailer,:descripcion, :categoriaId)";
+            $sql = "INSERT INTO juegos (nombre,fecha,idiomas,precio,desarrollador,plataforma,clasificacion,resumen,requerimientos,pagina_web,derechos_autor,trailer,descripcion, categoriaId) VALUES (:nombre, FROM_UNIXTIME(:fecha),:idiomas,:precio,:desarrollador,:plataforma,:clasificacion,:resumen,:requerimientos,:pagina_web,:derechos_autor,:trailer,:descripcion, :categoriaId)";
             $st = $conn->prepare ($sql);
             $st->bindValue(":nombre",$this->nombre, PDO::PARAM_STR);
             $st->bindValue(":fecha",$this->fecha, PDO::PARAM_INT);
@@ -154,6 +155,7 @@
             $st->bindValue(":trailer", $this->trailer, PDO::PARAM_STR);
             $st->bindValue(":descripcion", $this->descripcion, PDO::PARAM_STR);
             $st->bindValue(":categoriaId", $this->categoriaId, PDO::PARAM_INT);
+            $st->bindValue(":id" , $this->id,PDO::PARAM_INT);
             $st->execute();
             $con=null;
         }
