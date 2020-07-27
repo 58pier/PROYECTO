@@ -11053,6 +11053,34 @@
 							"target": {
 								"$ref": "AAAAAAFy8bVDUvhbf2s="
 							}
+						},
+						{
+							"_type": "UMLAssociation",
+							"_id": "AAAAAAFzjhAfu4QQ/KY=",
+							"_parent": {
+								"$ref": "AAAAAAFzFOYUn9Rf17A="
+							},
+							"end1": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAFzjhAfu4QRvj4=",
+								"_parent": {
+									"$ref": "AAAAAAFzjhAfu4QQ/KY="
+								},
+								"reference": {
+									"$ref": "AAAAAAFzFOYUn9Rf17A="
+								}
+							},
+							"end2": {
+								"_type": "UMLAssociationEnd",
+								"_id": "AAAAAAFzjhAfu4QSEhs=",
+								"_parent": {
+									"$ref": "AAAAAAFzjhAfu4QQ/KY="
+								},
+								"reference": {
+									"$ref": "AAAAAAFy8bVDUvhbf2s="
+								},
+								"aggregation": "composite"
+							}
 						}
 					],
 					"attributes": [

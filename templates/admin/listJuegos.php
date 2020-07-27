@@ -13,7 +13,7 @@
 
     <div class="lista_lista">
 
-        <table>
+        <table class="table_lista">
 
             <tr>
                 <th>Fecha de Publicacion</th>
