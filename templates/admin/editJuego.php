@@ -54,10 +54,10 @@
     </select>
     <br>
     <label for="resumen"> Resumen</label>
-    <textarea name="resumen" id="resumen" placeholder="Resumen del juego" rows="10" cols="108" required maxlength="100000"><?php echo htmlspecialchars($results['juego']->resumen) ?></textarea>
+    <textarea name="resumen" id="resumen" placeholder="Resumen del juego" rows="10" cols="118" required maxlength="100000"><?php echo htmlspecialchars($results['juego']->resumen) ?></textarea>
 
     <label for="descripcion"> Descripcion del Juego</label>
-    <textarea name="descripcion" id="descripcion" placeholder="Descripcion del juego" rows="10" cols="108" required maxlength="100000"><?php echo htmlspecialchars($results['juego']->descripcion) ?></textarea>
+    <textarea name="descripcion" id="descripcion" placeholder="Descripcion del juego" rows="10" cols="118" required maxlength="100000"><?php echo htmlspecialchars($results['juego']->descripcion) ?></textarea>
     </div>
     <div class="botones">
         <input id="btnjuego" type="submit" name="saveChanges" value="Guardar Cambios">
