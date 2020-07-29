@@ -15,6 +15,7 @@ CREATE TABLE juegos
     derechos_autor  text NOT NULL,
     trailer         text NOT NULL,
     descripcion     text NOT NULL,
+    categoriaId          smallint unsigned NOT NULL,
 
     PRIMARY KEY     (id)
 );
