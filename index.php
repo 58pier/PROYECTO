@@ -19,14 +19,14 @@
         $results = array();
         $categoriaId = ( isset( $_GET['categoriaId']) && $_GET['categoriaId']) ? (int) $_GET['categoriaId'] : null;
         $results['categoria'] = Category::getById($categoriaId);
-        $data = Juego::getList(100000 , $results['categoria'] ? $results['categoriaId']->id : null );
+        $data = Juego::getList(100000 , $results['categoria'] ? $results['categoria']->id : null );
         $results['juegos'] = $data ['results'];
         $results['totalRows'] = $data['totalRows'];
         $data = Category::getList();
         $results['categorias'] = array();
         foreach ( $data['results'] as $categoria) $results['categorias'][$categoria->id] = $categoria;
-        $results['pageHeanding'] = $results['categoria'] ? $results['categoria']->nombre : "Juego Archivado";
-        $results['pageTitle'] = $results['pageHeading']."Juego Archive | Widgets News";
+        $results['pageHeading'] = $results['categoria'] ? $results['categoria']->nombre : "Juego Archivado";
+        $results['pageTitle'] = $results['pageHeading'];
         require( TEMPLATE_PATH. "/archive.php");
     }
 
@@ -39,10 +39,10 @@
         }
 
         $results = array();
-        $results['juegos'] = Juego::getById( (int)$_GET["juegoId"]);
+        $results['juego'] = Juego::getById( (int)$_GET["juegoId"]);
         $results['categoria'] = Category::getById( $results['juego']->categoriaId);
-        $results['pageTitle'] = $results['juego']->nombre ."Juego Archive | Widgets News";
-        require(TEMPLATE_PATH . "/archive.php");
+        $results['pageTitle'] = $results['juego']->nombre ;
+        require(TEMPLATE_PATH . "/viewJuego.php");
     }
     
     function homepage(){

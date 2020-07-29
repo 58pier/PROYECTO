@@ -16,15 +16,15 @@
     <div class="container-menu">
         <div class="menu">
             <div class="logo">
-                <img src="img/logo.png">
+                <a href="."><img src="img/logo.png"></a>
             </div>
             <div class="categorias">
                 <nav>
                     <ul>
-                        <li><a>ACCION</a></li>
-                        <li><a>AVENTURA</a></li>
-                        <li><a>HORROR</a></li>
-                        <li><a>INDIE</a></li>
+                        <?php foreach ($results['categorias'] as $categoria) { ?>
+                            <li><a href=".?action=archive&amp;categoriaId=<?php echo $categoria->id ?>"><?php echo htmlspecialchars($categoria->nombre) ?></a></li>
+                            
+                        <?php } ?>
                     </ul>
                 </nav>
             </div>

@@ -17,7 +17,7 @@
 
 <?php foreach ($results['categorias'] as $categoria) { ?>
     <div class="container-categoria">
-        <h3 class="category"> <a href=".?action=archive&amp;categoriaId=<?php echo $categoria->nombre ?>"><?php echo htmlspecialchars($categoria->nombre) ?></a> </h3>
+        <h3 class="category"> <a href=".?action=archive&amp;categoriaId=<?php echo $categoria->id ?>"><?php echo htmlspecialchars($categoria->nombre) ?></a> </h3>
         <div class="container-juego">
             <?php foreach ($results['juegos'] as $juego) { ?>
                 <?php if ($juego->categoriaId == $categoria->id) { ?>
@@ -32,7 +32,7 @@
                     </div>
                 <?php } ?>
             <?php } ?>
-            <h3><a href=".?action=archive&amp;categoriaId=<?php echo $categoria->nombre ?>">VER MAS</a></h3>
+            <h3><a href=".?action=archive&amp;categoriaId=<?php echo $categoria->id ?>">VER MAS</a></h3>
         </div>
     </div>
 <?php } ?>
