@@ -19,16 +19,16 @@
         <div id="sec4">
             <div class="formulario">
                 <h3>Nombre:</h3>
-                <input type="text" id="nombre">
+                <input class="factura" type="text" id="nombre">
                 <h3>DNI:</h3>
-                <input type="number" id="dni">
+                <input  class="factura"type="number" id="dni">
             </div>
             <div class="formulario2">
                 <h3>Correo:</h3>
-                <input type="email" id="correo">
+                <input class="factura" type="email" id="correo">
                 <h3>Celular:</h3>
-                <input type="number" id="celular">
-                <input id="boton2" type="submit" size="" value="PAGAR">
+                <input class="factura" type="number" id="celular">
+                <input class="factura" id="boton2" type="submit" size="" value="PAGAR">
             </div>
         </div>
     </div>
