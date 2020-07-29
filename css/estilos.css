@@ -398,7 +398,7 @@ form p {
     width: 60px;
 }
 
-input {
+.container .factura {
     width: 220px;
     height: 25px;
 }
@@ -528,6 +528,87 @@ input {
 }
 /*fin nueva categoria*/
 
-
+/*edit juego*/
+.editjuego{
+    margin-left: 250px;
+    margin-right: 250px;
+    text-align: inherit;
+    line-height : 40px;
+    
+}
+label{
+    font-family: 'Courier New', Courier, monospace;
+}
+.tit{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+.nombre_juego{
+    width: 31.5%;
+    height: 20px;
+}
+#fecha{
+    width: 31.5%;
+    height: 20px;
+}
+#idiomas{
+    width: 31.5%;
+    height: 20px;
+}
+#precio{
+    width: 31%;
+    height: 20px
+}
+#desarrollador{
+    width: 31.5%;
+    height: 20px;
+}
+#plataforma{
+    width: 31.5%;
+    height: 20px;
+}
+#clasificacion{
+    width: 31.5%;
+    height: 20px;
+}
+#requerimientos{
+    width: 31.5%;
+    height: 20px;
+}
+#pagina_web{
+    width: 31.5%;
+    height: 20px;
+}
+#derechos_autor{
+    width: 31.5%;
+    height: 20px;
+}
+#trailer{
+    width: 31.5%;
+    height: 20px;
+}
+#categoriaId{
+    width: 32%;
+    height: 25px;
+}
+.botones{
+    margin-left: 834px;
+}
+#btnjuego{
+    font-family: 'Courier New', Courier, monospace;
+    width: 140px;
+    height: 40px;
+    border-radius: 3px;
+    border-color: #f2f2f200;
+    background-color: #544f59;
+    color: #f2f2f2;
+    font-weight: bolder;
+    font-size: 13px;
+}
+.del{
+    margin-left: 325px;
+    font-family: 'Courier New', Courier, monospace;
+}
+/*fin edit juego*/
 
 
