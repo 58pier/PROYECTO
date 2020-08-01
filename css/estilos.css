@@ -629,3 +629,17 @@ height: 500px;
 width: 250px;
 height: 250px;
 }
+
+/*fin Homepage*/
+
+/*Archive*/
+.slide-img3 img{
+    width: 300px;
+    height: 250px;
+    margin-right: 25px;
+}
+
+.slide-juegox{
+    margin-top: 40px;
+    display: inline-block;
+}

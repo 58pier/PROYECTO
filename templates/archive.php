@@ -22,9 +22,9 @@
 <div>
     <div>
         <?php foreach ($results['juegos'] as $juego) { ?>
-                <div class="slide-juego">
+                <div class="slide-juegox">
                     <a href=".?action=viewJuego&amp;juegoId=<?php echo $juego->id ?>">
-                        <div class="slide-img">
+                        <div class="slide-img3">
                             <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($juego->getImages(0)) ?>">
                         </div>
                         <div class="slide-title">
