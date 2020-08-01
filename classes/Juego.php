@@ -59,6 +59,16 @@
             $tarjeta = $data['tarjeta'];
 
             if ($accion != 0) $data['requerimientos'] = $procesador . "," . $so . "," . $memoria . "," . $tarjeta;
+        
+        /* Idiomas */
+
+            $español = $data['español'];
+            $ingles = $data['ingles'];
+            $frances = $data['frances'];
+            $ruso = $data['ruso'];
+
+            if ($accion != 0 ) $data['idiomas'] = $español . "," . $ingles . "," . $frances . "," . $ruso;
+
 
             
             if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];

@@ -26,10 +26,10 @@
         <label for="idiomas"> Idiomas......</label>
         <input type="hidden" name="idiomas" id="idiomas" placeholder="Idiomas del juego" maxlength="255" value="<?php echo htmlspecialchars($results['juego']->idiomas) ?>">
 
-        <label for="español"> <input type="checkbox" name="español" id="español" value="español" <?php if($results['juego']->idiomas ) ?>> Español</label>
-        <label for="ingles"> <input type="checkbox" name="ingles" id="ingles" value="ingles"> Ingles</label>
-        <label for="frances"> <input type="checkbox" name="frances" id="frances" value="frances"> Frances</label>
-        <label for="ruso"> <input type="checkbox" name="ruso" id="ruso" value="ruso"> Ruso </label>
+        <label for="español"> <input type="checkbox" name="español" id="español" value="español" <?php if($results['juego']->getIdiomas(0)=="español")echo "checked" ?>> Español</label>
+        <label for="ingles"> <input type="checkbox" name="ingles" id="ingles" value="ingles" <?php if ($results['juego']->getIdiomas(1) == "ingles") echo htmlspecialchars("checked") ?>> Ingles</label>
+        <label for="frances"> <input type="checkbox" name="frances" id="frances" value="frances" <?php if ($results['juego']->getIdiomas(2) == "frances") echo htmlspecialchars("checked") ?>> Frances</label>
+        <label for="ruso"> <input type="checkbox" name="ruso" id="ruso" value="ruso" <?php if ($results['juego']->getIdiomas(3) == "ruso") echo htmlspecialchars("checked") ?>> Ruso </label>
 
 
         <label for="precio"> Precio...........</label>
