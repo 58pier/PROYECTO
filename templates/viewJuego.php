@@ -1,13 +1,18 @@
 <?php include "include/header.php" ?>
+<?php $arreglo = $results['juego']->getImages(); ?>
+
 <div class="title_game">
     <h1><?php echo htmlspecialchars($results['juego']->nombre) ?></h1>
     <div class="game_img">
-        <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($results['juego']->trailer) ?>"><?php  /*CARRUSSEL DE IMAGENES DEL JUEGO*/ ?>
+        <iframe src="<?php echo htmlspecialchars($arreglo[4]); ?>" width="560" height="315"></iframe>
+        <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($arreglo[0]); ?>">
+        <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($arreglo[1]); ?>">
+        <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($arreglo[2]); ?>">
     </div>
 </div>
 <div>
     <div class="logo_juego">
-        <img src=""> <?php  /*LOGO DEL JUEGO */ ?>
+        <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($arreglo[3]); ?>">
         <div class="resumen">
 
             <h3><?php echo htmlspecialchars($results['juego']->resumen) ?> </h3>
@@ -33,7 +38,7 @@
                 <p><?php echo htmlspecialchars($results['juego']->desarrollador) ?></p>
             </td>
             <td>
-                <p><?php echo date('j M Y',$results['juego']->fecha) ?></p>
+                <p><?php echo date('j M Y', $results['juego']->fecha) ?></p>
             </td>
             <td>
                 <p><?php echo htmlspecialchars($results['juego']->clasificacion) ?></p>
@@ -46,7 +51,22 @@
 </div>
 <div class="language">
     <h2>Idiomas:</h2>
-    <p><?php echo htmlspecialchars($results['juego']->idiomas) ?></p>
+    <table class="tabla1">
+        <thead>
+            <tr>
+                <th colspan='1'>Español</th>
+                <th colspan='1'>Ingles</th>
+                <th colspan='1'>Frances</th>
+                <th colspan='1'>Ruso</th>
+            </tr>
+        </thead>
+        <tr>
+            <td><input type="checkbox" name="español" id="español" disabled <?php if ($results['juego']->getIdiomas(0) == "español") echo "checked" ?>></td>
+            <td><input type="checkbox" name="ingles" id="ingles" disabled <?php if ($results['juego']->getIdiomas(1) == "ingles") echo htmlspecialchars("checked") ?>></td>
+            <td><input type="checkbox" name="ingles" id="frances" disabled <?php if ($results['juego']->getIdiomas(2) == "frances") echo htmlspecialchars("checked") ?>></td>
+            <td><input type="checkbox" name="ruso" id="ruso" disabled <?php if ($results['juego']->getIdiomas(3) == "ruso") echo htmlspecialchars("checked") ?>></td>
+        </tr>
+    </table>
 </div>
 <div class="descripcion">
     <h2>Descripcion:&nbsp&nbsp&nbsp&nbsp</h2>
@@ -66,7 +86,10 @@
             </tr>
         </thead>
         <tr>
-            <td><?php echo htmlspecialchars($results['juego']->requerimientos) ?></td>
+            <td><?php echo htmlspecialchars($results['juego']->getRequerimientos(0)) ?></td>
+            <td><?php echo htmlspecialchars($results['juego']->getRequerimientos(1)) ?></td>
+            <td><?php echo htmlspecialchars($results['juego']->getRequerimientos(2)) ?></td>
+            <td><?php echo htmlspecialchars($results['juego']->getRequerimientos(3)) ?></td>
         </tr>
     </table>
 </div>
@@ -78,5 +101,15 @@
     <h3><?php echo htmlspecialchars($results['juego']->derechos_autor) ?></h3>
 
 </div>
+
+<?php include "include/final-divs.php" ?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".game_img").slick({
+            lazyLoad: 'ondemand', // ondemand progressive anticipated
+            infinite: true
+        });
+    });
+</script>
 
 <?php include "include/footer.php" ?>
