@@ -33,8 +33,34 @@
 
         public $categoriaId = null; 
 
-        public function __construct( $data = array())
+        public function __construct( $data = array(), $accion = 0)
         {
+            /* Imagenes */
+            $trailer_1= $data['trailer_1'];
+                
+            $portada= $data['portada']; 
+                
+            $gameplay_1= $data['gameplay_1']; 
+                
+            $gameplay_2= $data['gameplay_2']; 
+            
+            $logo = $data['logo'];  
+
+            if( $accion !=0 ) $data['trailer'] = $portada . "," . $gameplay_1 . "," . $gameplay_2 . "," . $logo . "," . $trailer_1 ;
+
+        /* Requerimientos */
+
+            $procesador = $data['procesador'];
+
+            $so = $data['so'];
+
+            $memoria = $data['memoria'];
+
+            $tarjeta = $data['tarjeta'];
+
+            if ($accion != 0) $data['requerimientos'] = $procesador . "," . $so . "," . $memoria . "," . $tarjeta;
+
+            
             if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
             if ( isset( $data['nombre'] ) ) $this->nombre = $data['nombre'];
             if ( isset( $data['fecha'] ) ) $this->fecha = (int) $data['fecha'];
@@ -53,10 +79,10 @@
         } 
 
 
-        public function storeFormValues ($params)
+        public function storeFormValues ($params, $accion)
         {
 
-            $this->__construct($params);
+            $this->__construct($params, $accion);
 
             if (isset($params['fecha']))
             {
@@ -171,6 +197,35 @@
             $conn = null;
         }
 
+        public function getImages($parametro = 5)
+        {
+            //Las imagenes seran insertadas en la forma portada, gameplay 1, gameplay2, logo, trailer
+            $arreglo = explode(",", $this->trailer);
+            if ($parametro == 5)    return $arreglo;
+            else {
+                return $arreglo[$parametro];
+            }
+        }
+
+        public function getRequerimientos($parametro = 4)
+        {
+            //Las imagenes seran insertadas en la forma procesador, Sistema Operativo, Memoria Ram, tarjeta grafica
+            $arreglo = explode(",", $this->requerimientos);
+            if ($parametro == 4)    return $arreglo;
+            else {
+                return $arreglo[$parametro];
+            }
+        }
+
+        public function getIdiomas($parametro = 4)
+        {
+            //Las imagenes seran insertadas en la forma procesador, Sistema Operativo, Memoria Ram, tarjeta grafica
+            $arreglo = explode(",", $this->idiomas);
+            if ($parametro == 4)    return $arreglo;
+            else {
+                return $arreglo[$parametro];
+            }
+        }
     }
 
 ?>

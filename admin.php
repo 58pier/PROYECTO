@@ -112,7 +112,7 @@ function editJuego(){
             header( "Location: admin.php?error=juegoNotFound");
             return;
         }
-        $juego->storeFormValues( $_POST);
+        $juego->storeFormValues( $_POST, 1);
         $juego->update();
         header ( "Location: admin.php?status=changesSaved" );
     }
@@ -122,7 +122,7 @@ function editJuego(){
     }
     else
     {
-        $results['juego'] = Juego::getById((int) $_GET['juegoId']);
+        $results['juego'] = Juego::getById((int) $_GET['juegoId'] , 1);
         $data = Category::getList();
         $results['categorias'] = $data['results'];
         require( TEMPLATE_PATH . "/admin/editJuego.php");
