@@ -23,7 +23,7 @@
                 <?php if ($juego->categoriaId == $categoria->id) { ?>
                     <div class="slide-juego">
                         <a href=".?action=viewJuego&amp;juegoId=<?php echo $juego->id ?>">
-                            <div class="slide-img">
+                            <div class="slide-img2">
                                 <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($juego->getImages(0)) ?>">
                             </div>
                             <div class="slide-title">
