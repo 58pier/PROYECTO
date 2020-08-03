@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 body
 {
     margin: 0;
-    padding: 00;
+    padding: 0;
+    font-family: 'Open Sans',    sans-serif;
 }
 /*inicia header*/
 
@@ -54,7 +57,6 @@ nav ul li
 .categorias nav ul li a
 {
     font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
     text-align: center;
     cursor: pointer;
     padding-top: 20px;
@@ -74,6 +76,7 @@ nav ul li
 .container
 {
     margin: 100px;
+    margin-top: 50px;
 }
 
 /*Cierra Container*/
@@ -125,7 +128,6 @@ footer {
     width: 250px;
     margin-bottom: 40px;
     font-size: 25px;
-    font-family: 'Courier New', Courier, monospace;
     border-radius: 10%;
     color: white;
     -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
@@ -144,12 +146,27 @@ footer {
 /*juego (Juan)196*/
 .container .title_game {
     margin-top: -10px;
-    font-family: 'Courier New', Courier, monospace;
 }
 
-.container .title_game .game_img img {
-    width: 80%;
-    margin-left: 10%;
+.title_game h1 {
+    font-size: 35px;
+}
+
+.game_img{
+    padding: 0;
+    width: 1200px;
+    height: 650px;
+    margin-left: 5%;
+}
+
+.game_img iframe{
+    width: 1000px;
+    height: 600px;
+    border: 0;
+}
+.game_img img {
+    width: 1000px;
+    height: 600px;
 }
 
 .container .logo_juego img {
@@ -159,7 +176,6 @@ footer {
 }
 
 .container .resumen {
-    font-family: 'Courier New', Courier, monospace;
     text-align: left;
     margin-top: -16%;
     margin-left: 300px;
@@ -177,40 +193,34 @@ footer {
 }
 
 .container .acerca {
-    font-family: 'Courier New', Courier, monospace;
     text-align: left;
     margin-left: 80px;
     margin-top: 80px;
 }
 
 .container .language {
-    font-family: 'Courier New', Courier, monospace;
     text-align: left;
     margin-left: 80px;
 }
 
 .container .descripcion {
-    font-family: 'Courier New', Courier, monospace;
     text-align: left;
     margin-left: 80px;
 }
 
 .container .descripcion .descr_text {
-    font-family: 'Courier New', Courier, monospace;
     text-align: justify;
     margin-left: 200px;
     margin-right: 200px;
 }
 
 .container .requerimientos {
-    font-family: 'Courier New', Courier, monospace;
     text-align: left;
     margin-left: 80px;
     margin-top: 80px;
 }
 
 .container .derechos_de_autor {
-    font-family: 'Courier New', Courier, monospace;
     text-align: center;
 }
 
@@ -404,7 +414,6 @@ form p {
 /*LISTA DE JUEGOS Y CATEGORIA*/
 
 .lista_juegos{
-    font-family: 'Courier New', Courier, monospace;
     width: 90%;
     -webkit-box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
     -moz-box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
@@ -415,7 +424,6 @@ form p {
 }
 
 .titulo_lista{
-    font-family: 'Courier New', Courier, monospace;
     width: 80%;
     height: 100px;
     background-position: center;
@@ -430,7 +438,6 @@ form p {
 }
 
 .buscar_lista{
-    font-family: 'Courier New', Courier, monospace;
     width: 258px;
     height: 60px;
     display: flex;
@@ -438,14 +445,12 @@ form p {
 }
 
 #buscar_texto{
-    font-family: 'Courier New', Courier, monospace;
     margin-top: 15px;
     width: 150px;
     height: 29px;
 } 
 
 #boton_buscar{
-    font-family: 'Courier New', Courier, monospace;
     margin-top: 15px;
     width: 100px;
     height: 35px;
@@ -458,14 +463,12 @@ form p {
 }
 
 .lista_lista{
-    font-family: 'Courier New', Courier, monospace;
     width: 100%;
     height: 600px;
     background-color: rgb(171, 189, 192);
 }
 
 #añadir_lista{
-    font-family: 'Courier New', Courier, monospace;
     margin-top: 15px;
     width: 100px;
     height: 35px;
@@ -494,7 +497,6 @@ form p {
 /*fin lista juegos y categoria*/
 /*nueva categoria*/
 #sections3 {
-    font-family: 'Courier New', Courier, monospace;
     background-color: #ff5335c7;
     padding: 10px;
     height: 400px;
@@ -517,7 +519,6 @@ form p {
     margin-top: 30px;
 }
 #b1{
-    font-family: 'Courier New', Courier, monospace;
     width: 100px;
     height: 30px;
     background-color: #544f59;
@@ -536,10 +537,8 @@ form p {
     
 }
 label{
-    font-family: 'Courier New', Courier, monospace;
 }
 .tit{
-    font-family: 'Courier New', Courier, monospace;
     text-align: center;
 }
 .nombre_juego{
@@ -594,7 +593,6 @@ label{
     margin-left: 834px;
 }
 #btnjuego{
-    font-family: 'Courier New', Courier, monospace;
     width: 140px;
     height: 40px;
     border-radius: 3px;
@@ -606,7 +604,6 @@ label{
 }
 .del{
     margin-left: 325px;
-    font-family: 'Courier New', Courier, monospace;
 }
 /*fin edit juego*/
 

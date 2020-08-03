@@ -4,7 +4,7 @@
 <div class="title_game">
     <h1><?php echo htmlspecialchars($results['juego']->nombre) ?></h1>
     <div class="game_img">
-        <iframe src="<?php echo htmlspecialchars($arreglo[4]); ?>" width="560" height="315"></iframe>
+        <iframe src="<?php echo htmlspecialchars($arreglo[4])  . "?controls=0&amp"; ?>" frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($arreglo[0]); ?>">
         <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($arreglo[1]); ?>">
         <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($arreglo[2]); ?>">
@@ -16,9 +16,7 @@
         <div class="resumen">
 
             <h3><?php echo htmlspecialchars($results['juego']->resumen) ?> </h3>
-            <div class="compra">
-                <input type="button" value="COMPRAR">
-            </div>
+
         </div>
     </div>
 </div>
@@ -106,8 +104,9 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $(".game_img").slick({
-            lazyLoad: 'ondemand', // ondemand progressive anticipated
-            infinite: true
+            dots: true,
+            infinite: true,
+            variableWidth: true
         });
     });
 </script>
