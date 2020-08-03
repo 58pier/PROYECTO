@@ -15,7 +15,7 @@
     <div class="container-menu">
         <div class="menu">
             <div class="logo">
-                <img src="img/logo.png">
+                <a href="admin.php"><img src="img/logo.png"></a>
             </div>
         </div>
     </div>
