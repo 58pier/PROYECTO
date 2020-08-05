@@ -22,6 +22,8 @@
 
     require(CLASS_PATH. "/Juego.php");
     require(CLASS_PATH . "/Categoria.php");
+    require(CLASS_PATH . "/Boleta.php");
+
 
 
     function handleException($exception)

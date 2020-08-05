@@ -40,6 +40,12 @@ switch( $action)
     case 'deleteCategoria':
         deleteCategoria();
         break;
+    case 'viewBoleta':
+        viewBoleta();
+        break;
+    case 'listBoletas':
+        listBoletas();
+        break;
     default:
         listJuegos();
 }
@@ -259,5 +265,32 @@ function deleteCategoria()
     $categoria->delete();
     header( "Location: admin.php?action=listCategorias&status=categoriaDeleted");
 
+}
+
+function viewBoleta(){
+    $results = array();
+    $results['pageTitle'] = "Boletas";
+    $results['formAction'] = "viewBoleta";
+    $results['boleta'] = Boleta::getById((int)$_GET['boletaId']);
+
+    if (isset($_POST['regresar'])) {
+            header("Location: admin.php?action=listCategorias");
+    
+}
+    require(TEMPLATE_PATH . "/admin/viewBoleta.php");
+
+}
+function listBoletas(){
+    $results = array();
+    $data = Boleta::getList();
+    $results['boletas'] = $data['results'];
+    $results['totalRows'] = $data['totalRows'];
+    $results['pageTitle'] = "Boletas";
+
+    if (isset($_GET['error'])) {
+        if ($_GET['error'] == "boletaNotFound") $results['errorMessage'] = "Error: Boleta no encontrada.";
+    }
+
+    require(TEMPLATE_PATH . "/admin/listBoletas.php");
 }
 ?>

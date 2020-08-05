@@ -21,5 +21,5 @@
     </div>
     <div class="container" id="adminHeader">
         <h2> JMP Admin</h2>
-        <p> Te has logeado  como <b><?php echo htmlspecialchars( $_SESSION['username']) ?></b>. <a href="admin.php?action=listJuegos"> Editar juegos</a> <a href="admin.php?action=listCategorias">Editar categorias</a> <a href="admin.php?action=logout">Cerrar sesión</a></p>
+        <p> Te has logeado como <b><?php echo htmlspecialchars($_SESSION['username']) ?></b>. <a href="admin.php?action=listJuegos"> Editar juegos</a> <a href="admin.php?action=listCategorias">Editar categorias</a> <a href="admin.php?action=listBoletas">Ver Boleras</a> <a href="admin.php?action=logout">Cerrar sesión</a></p>
     </div>

@@ -10,6 +10,12 @@
         case 'viewJuego':
             viewJuego();
             break;
+        case 'buyJuego':
+            buyJuego();
+            break;
+        case 'payJuego':
+            payJuego();
+            break;
         default:
             homepage();
     }
@@ -45,6 +51,39 @@
         require(TEMPLATE_PATH . "/viewJuego.php");
     }
     
+    function buyJuego(){
+        if (!isset($_GET["juegoId"]) || !$_GET["juegoId"])
+        {
+            homepage();
+            return;
+        }
+
+        $results = array();
+        $results['juego'] = JUEGO::getById(( int)$_GET['juegoId']);
+        $results['categoria'] = Category::getById($results['juego']->categoriaId);
+        $results['pageTitle'] = $results['juego']->nombre . " Compra";
+        require(TEMPLATE_PATH ."/boleta.php"); 
+    }
+
+    function payJuego(){
+
+        $results = array();
+        $results['juego'] = JUEGO::getById((int)$_GET['juegoId']);
+        $results['categoria'] = Category::getById( $results['juego']->categoriaId);
+        $results['pageTitle'] = "Pagar";
+        $results['formAction'] = "payJuego";
+
+        if( isset( $_POST['saveCompra'])){
+            $boleta = new Boleta($_POST);
+            $boleta->insert();
+            header( "Location: index.php?status=saveCompra");
+        }elseif( isset( $_POST['cancelar'])){
+            header("Location: index.php");
+        }
+        require(TEMPLATE_PATH ."/factura.php");
+
+    }
+
     function homepage(){
 
         $results = array();

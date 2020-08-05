@@ -31,7 +31,7 @@
         </div>
         <div class="button-pago">
             <button>
-                <h4>$<?php echo htmlspecialchars($results['juego']->precio) ?>.00</h4>
+                <a href=".?action=buyJuego&amp;juegoId=<?php echo $results['juego']->id?>"><h4>$<?php echo htmlspecialchars($results['juego']->precio) ?>.00</h4></a>
             </button>
         </div>
     </div>
