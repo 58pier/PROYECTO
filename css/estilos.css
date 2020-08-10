@@ -37,7 +37,7 @@ a{
 }
 .categorias
 {
-    padding-left: 35%;
+    padding-left: 20%;
     padding-top: 30px;
 }
 nav ul li 
@@ -726,7 +726,6 @@ height: 500px;
 /*Archive*/
 .body-archive{
     margin-top: 5%;
-    d
 }
 .slide-img3 img{
     width: 300px;
