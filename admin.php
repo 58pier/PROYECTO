@@ -89,7 +89,7 @@ function newJuego()
     if( isset( $_POST['saveChanges']))
     {
         $juego = new Juego;
-        $juego->storeFormValues( $_POST,0);
+        $juego->storeFormValues( $_POST1,);
         $juego->insert();
         header( "Location: admin.php?status=changesSaved");
     } elseif( isset($_POST['cancel']))
