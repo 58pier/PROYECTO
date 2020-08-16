@@ -11,7 +11,7 @@
     define("CLASS_PATH","classes");
     define("TEMPLATE_PATH","templates");
 
-    define("HOMEPAGE_NUM_JUEGOS",5);
+    define("HOMEPAGE_NUM_JUEGOS",100);
 
     define("ADMIN_USERNAME","root");
     define("ADMIN_PASSWORD","admin");
