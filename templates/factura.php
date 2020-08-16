@@ -1,72 +1,69 @@
 <?php include "include/header.php" ?>
+<div class="aprobacion">
+<?php
+$ClientId = "ARbdyOv7dYkYz9F2IftS8oaoHedkvs1Ri3uT4ReXMG3pI6Q55-soBuFJ7RgCEBYgv-yYYHtT4xkrta46";
+$Secret = "EChXLp8adLwCgaWVzx6rs4fwjSVvS2UDZmugpEBFwZ6Wy5fs6Yb5p8gAB_sDzk6jP_kcVExvYzUszH1W";
 
-<div id="sections2">
-    <h2>FACTURACIÓN</h2>
-    <div class="conte2">
-        <div id="sec3">
-            <div class="contenedor_juego">
-                <div id="imgx">
-                    <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($results['juego']->getImages(3)); ?>" width="60px" height="60px">
-                </div>
-                <div id="descripcion">
-                    <h3><?php echo htmlspecialchars($results['juego']->nombre) ?></h3>
-                </div>
-                <div id="tot">
-                    <h3>$ <?php echo htmlspecialchars($results['juego']->precio) ?>.00</h3>
-                </div>
-            </div>
-        </div>
-        <div id="sec4">
-            <form action="index.php?action=<?php echo $results['formAction'] ?>" method="post">
-                <div class="formulario">
-                    <h3>Nombre:</h3>
-                    <input name="nombres" class="factura" type="text" id="nombres">
-                    <h3>Apellidos:</h3>
-                    <input name="apellidos" class="factura" type="text" id="apellidos">
-                    <h3>DNI:</h3>
-                    <input class="factura" name="dni" type="text" id="dni">
-                    <h3>DIRECCIÓN:</h3>
-                    <input class="factura" name="direccion" type="text" id="direccion">
-                </div>
-                <div class="formulario2">
-                    <h3>Correo:</h3>
-                    <input class="factura" name="correo" type="text" id="correo">
-                    <input class="factura" name="juego" id="boton2" type="hidden" size="" value="<?php echo $results['juego']->nombre ?>">
-                    <input class="factura" name="importe" id="boton2" type="hidden" size="" value="<?php echo $results['juego']->precio ?>">
-                    <input type="submit" value="Comprar" name="saveCompra">
-                    <input type="submit" value="Cancelar" name="cancelar">
-                </div>
-            </form>
-            <div id="paypal-button-container"></div>
-        </div>
-    </div>
+$Login = curl_init("https://api.sandbox.paypal.com/v1/oauth2/token");
+
+curl_setopt($Login, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($Login, CURLOPT_USERPWD, $ClientId . ":" . $Secret);
+curl_setopt($Login, CURLOPT_POSTFIELDS, "grant_type=client_credentials");
+$Respuesta = curl_exec($Login);
+
+
+$objRespuesta = json_decode($Respuesta);
+
+$AccessToken = $objRespuesta->access_token;
+//print_r("asdasd" . $AccessToken);
+
+$venta = curl_init("https://api.sandbox.paypal.com/v2/checkout/orders/" . $_GET['paymentID']);
+
+curl_setopt($venta, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Authorization: Bearer " . $AccessToken));
+
+curl_setopt($venta, CURLOPT_RETURNTRANSFER, TRUE);
+
+$RespuestaVenta = curl_exec($venta);
+
+//print_r($RespuestaVenta);
+
+$objetoDatosTransaccion = json_decode($RespuestaVenta);
+
+
+
+$state = $objetoDatosTransaccion->status;
+$name = $objetoDatosTransaccion->payer->name->given_name;
+$lastName = $objetoDatosTransaccion->payer->name->surname;
+$address = $objetoDatosTransaccion->purchase_units[0]->shipping->address->address_line_1 . ", " . $objetoDatosTransaccion->purchase_units[0]->shipping->address->admin_area_2 . ", " . $objetoDatosTransaccion->purchase_units[0]->shipping->address->admin_area_1;
+$dni = $objetoDatosTransaccion->payer->payer_id;
+$email = $objetoDatosTransaccion->payer->email_address;
+$juego = $objetoDatosTransaccion->purchase_units[0]->description;
+$importe = (int) $objetoDatosTransaccion->purchase_units[0]->amount->value;
+$fecha = $objetoDatosTransaccion->update_time;
+$fecha[10] = " ";
+$fecha[19] = " ";
+$fecha[12] = (int) $fecha[12] - 5;
+if ($state == "COMPLETED") {
+    $mensajePaypal = "<h3> Gracias por su compra </h3>
+                    <p>Su pagp ha sido aprovado, en breve se enviara una boleta de venta a la dirección electronica consignada junto con el codigo para la activación</p>";
+    $boleta = [
+        "nombres" => $name,
+        "apellidos" => $lastName,
+        "direccion" => $address,
+        "dni" => $dni,
+        "correo" => $email,
+        "juego" => $juego,
+        "importe" => $importe,
+        "fecha" => $fecha,
+    ];
+
+    $factura = new Boleta($boleta);
+    $factura->insert();
+} else {
+    $mensajePaypal = "<h3> PAGO NO APROBADO </h3>";
+}
+echo $mensajePaypal;
+?>
 </div>
 <?php include "include/final-divs.php" ?>
-<script src="https://www.paypal.com/sdk/js?client-id=AWeGHAfbelT1PS-ro19WWKC0nZkcE9uLPMCTdNCYrRUCzkIswS3N2yG-E1QsVyooN1ZxYvui5rdTl6ja"></script>
-<script>
-    // Render the PayPal button into #paypal-button-container
-    paypal.Buttons({
-
-        // Set up the transaction
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: '<?php echo $results['juego']->precio; ?>'
-                    },
-                    description: "Key game <?php echo $results['juego']->titulo; ?>",
-                }]
-            });
-        },
-
-        // Finalize the transaction
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                consolo.log(data);
-            });
-        }
-
-
-    }).render('#paypal-button-container');
-</script>
 <?php include "include/footer.php" ?>

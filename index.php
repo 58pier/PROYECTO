@@ -16,6 +16,9 @@
         case 'payJuego':
             payJuego();
             break;
+        case 'verification':
+            verification();
+            break;
         default:
             homepage();
     }
@@ -81,7 +84,12 @@
             header("Location: index.php");
         }
         require(TEMPLATE_PATH ."/factura.php");
+    }
 
+    function verification(){
+        $results['pageTitle'] = "Pago";
+        
+        require(TEMPLATE_PATH . "/factura.php");
     }
 
     function homepage(){

@@ -29,7 +29,7 @@ class Boleta
         if( isset( $data['correo'])) $this->correo =  $data['correo'];
         if( isset( $data['juego'])) $this->juego =  $data['juego'];
         if( isset( $data['importe'])) $this->importe = (int) $data['importe'];
-        $this->fecha = date("Y-m-d H:i:s");
+        $this->fecha = $data['fecha'];
     }
 
     public function __construct0($nombres,$apellidos,$direccion,$dni,$correo,$juego,$importe,$fecha){

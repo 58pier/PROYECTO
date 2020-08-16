@@ -34,7 +34,7 @@
                     amount: {
                         value: '<?php echo $results['juego']->precio ?>'
                     },
-                    description: "Key game <?php echo $results['juego']->nombre; ?>",
+                    description: "<?php echo $results['juego']->nombre; ?>",
                 }]
             });
         },
@@ -44,7 +44,7 @@
             return actions.order.capture().then(function(details) {
                 // Show a success message to the buyer
                 console.log(data);
-                window.location='.?action=verification&paymentToken='+data.pay
+                window.location = '.?action=verification&paymentToken=' + data.facilitatorAccessToken + "&paymentID="+data.orderID;
             });
         }
 
