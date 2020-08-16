@@ -301,9 +301,8 @@ footer {
 /*BOLETA*/
 
 #sections {
-    background-color: rgb(238, 239, 255);
     margin: 6px;
-    height: 600px;
+    height: 400px;
     width: 80%;
     margin: 0 auto;
     background-position: center;
@@ -317,9 +316,12 @@ footer {
 
 #sec1 {
     width: 40%;
+    height: 350px;
     display: block;
+    border-radius: 10px;
+    justify-content: center;
     margin: 5%;
-    background-color: rgba(0, 0, 0, 0.637);
+    background-color: rgba(105, 103, 103, 0.459);
 }
 
 form {
@@ -347,6 +349,7 @@ form {
     width: 80%;
     margin: auto;
     background-position: center;
+    margin-top: 100px;
 }
 
 form p {
@@ -736,4 +739,19 @@ height: 500px;
 .slide-juegox{
     margin-top: 40px;
     display: inline-block;
+}
+
+/* Boton Paypal*/
+
+@media screen and (max-width: 400px) {
+    #paypal-button-container {
+        width: 100%;
+    }
+}
+
+/* Media query for desktop viewport */
+@media screen and (min-width: 400px) {
+    #paypal-button-container {
+        width: 250px;
+    }
 }

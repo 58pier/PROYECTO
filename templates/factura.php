@@ -34,12 +34,39 @@
                     <input class="factura" name="juego" id="boton2" type="hidden" size="" value="<?php echo $results['juego']->nombre ?>">
                     <input class="factura" name="importe" id="boton2" type="hidden" size="" value="<?php echo $results['juego']->precio ?>">
                     <input type="submit" value="Comprar" name="saveCompra">
-                    <input type="submit" value="Cancelar"  name="cancelar" >
+                    <input type="submit" value="Cancelar" name="cancelar">
                 </div>
             </form>
+            <div id="paypal-button-container"></div>
         </div>
     </div>
 </div>
 <?php include "include/final-divs.php" ?>
+<script src="https://www.paypal.com/sdk/js?client-id=AWeGHAfbelT1PS-ro19WWKC0nZkcE9uLPMCTdNCYrRUCzkIswS3N2yG-E1QsVyooN1ZxYvui5rdTl6ja"></script>
+<script>
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
 
+        // Set up the transaction
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '<?php echo $results['juego']->precio; ?>'
+                    },
+                    description: "Key game <?php echo $results['juego']->titulo; ?>",
+                }]
+            });
+        },
+
+        // Finalize the transaction
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                consolo.log(data);
+            });
+        }
+
+
+    }).render('#paypal-button-container');
+</script>
 <?php include "include/footer.php" ?>
