@@ -208,6 +208,7 @@
             $st->bindValue(":id",$this->id, PDO::PARAM_INT);
             $st->execute();
             $conn = null;
+            $this->deleteKey(1);
         }
 
         public function getImages($parametro = 5)
@@ -287,14 +288,23 @@
             if ($row) return $row['digitalkey'];
         }
 
-        public function deleteKey()
+        public function deleteKey($accion= 0)
         {
+            if( $accion==0){
         $idjuego = $this->id;
         $conn = new PDO(DB_DNS, DB_USERNAME, DB_PASSWORD);
         $st = $conn->prepare("DELETE FROM digitalkey WHERE idjuego = :idjuego LIMIT 1");
         $st->bindValue(":idjuego", $idjuego, PDO::PARAM_INT);
         $st->execute();
-        $conn = null;
+        $conn = null;}
+        else{
+            $idjuego = $this->id;
+            $conn = new PDO(DB_DNS, DB_USERNAME, DB_PASSWORD);
+            $st = $conn->prepare("DELETE FROM digitalkey WHERE idjuego = :idjuego ");
+            $st->bindValue(":idjuego", $idjuego, PDO::PARAM_INT);
+            $st->execute();
+            $conn = null;
+        }
         }
         
 
