@@ -42,10 +42,10 @@ $importe = (int) $objetoDatosTransaccion->purchase_units[0]->amount->value;
 $fecha = $objetoDatosTransaccion->update_time;
 $fecha[10] = " ";
 $fecha[19] = " ";
-$fecha[12] = (int) $fecha[12] - 5;
+$fecha[12] = (int) $fecha[12];
 if ($state == "COMPLETED") {
     $mensajePaypal = "<h3> Gracias por su compra </h3>
-                    <p>Su pagp ha sido aprovado, en breve se enviara una boleta de venta a la dirección electronica consignada junto con el codigo para la activación</p>";
+                    <p>Su pago ha sido aprobado, en breve se enviara una boleta de venta a la dirección electronica consignada junto con el codigo para la activación</p>";
     $boleta = [
         "nombres" => $name,
         "apellidos" => $lastName,
