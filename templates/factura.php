@@ -57,10 +57,15 @@ if ($state == "COMPLETED") {
         "fecha" => $fecha,
         "digitalkey" => $results['juego']->getKey(),
     ];
-    $results['juego']->deleteKey();
 
     $factura = new Boleta($boleta);
     $factura->insert();
+
+    $newMail = new Correo($boleta);
+    $newMail->enviarCorreo();
+
+    $results['juego']->deleteKey();
+
 } else {
     $mensajePaypal = "<h3> PAGO NO APROBADO </h3>";
 }
