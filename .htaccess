@@ -1,3 +1,5 @@
     RewriteEngine On
-    RewriteRule ^juego-([0-9]+).html?$ index.php?action=viewJuego&juegoId=$1 [L]
+    RewriteRule ^juego_([0-9]+)?$ index.php?action=viewJuego&juegoId=$1 [L]
+    RewriteRule ^categoria_([0-9]+)?$ index.php?action=archive&categoriaId=$1 [L]
+    RewriteRule ^compra_juego_([0-9]+)?$ index.php?action=buyJuego&juegoId=$1 [L]
 

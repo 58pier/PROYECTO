@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
+<?php use  css\estilos; ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,7 @@
                 <nav>
                     <ul>
                         <?php foreach ($results['categorias'] as $categoria) { ?>
-                            <li><a href=".?action=archive&amp;categoriaId=<?php echo $categoria->id ?>"><?php echo htmlspecialchars($categoria->nombre) ?></a></li>
+                            <li><a href="categoria_<?php echo $categoria->id ?>"><?php echo htmlspecialchars($categoria->nombre) ?></a></li>
 
                         <?php } ?>
                     </ul>

@@ -3,7 +3,7 @@
 <div class="slider">
     <?php foreach ($results['juegos'] as $juego) { ?>
         <div class="slide">
-            <a href=".?action=viewJuego&amp;juegoId=<?php echo $juego->id ?>">
+            <a href="juego_<?php echo $juego->id ?>">
                 <div class="slide-title">
                     <span> <?php echo ($juego->nombre) ?></span>
                 </div>
@@ -19,24 +19,24 @@
 <div class="body-homepage">
     <?php foreach ($results['categorias'] as $categoria) { ?>
         <div class="container-categoria">
-            <h2 class="category"> <a href=".?action=archive&amp;categoriaId=<?php echo $categoria->id ?>"><?php echo htmlspecialchars($categoria->nombre) ?></a> </h2>
+            <h2 class="category"> <a href="categoria_<?php echo $categoria->id ?>"><?php echo htmlspecialchars($categoria->nombre) ?></a> </h2>
             <div class="container-juego">
                 <?php foreach ($results['juegos'] as $juego) { ?>
                     <?php if ($juego->categoriaId == $categoria->id) { ?>
                         <div class="slide-juego">
 
                             <div class="slide-img2">
-                                <a href=".?action=viewJuego&amp;juegoId=<?php echo $juego->id ?>"><img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($juego->getImages(0)) ?>"></a>
+                                <a href="juego_<?php echo $juego->id ?>"><img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($juego->getImages(0)) ?>"></a>
                             </div>
                             <div class="slide-title-juego">
-                                <a href=".?action=viewJuego&amp;juegoId=<?php echo $juego->id ?>"><span> <?php echo ($juego->nombre) ?></span></a>
+                                <a href="juego_<?php echo $juego->id ?>"><span> <?php echo ($juego->nombre) ?></span></a>
                             </div>
 
                         </div>
                     <?php } ?>
                 <?php } ?>
             </div>
-            <h3><a href=".?action=archive&amp;categoriaId=<?php echo $categoria->id ?>">VER MAS</a></h3>
+            <h3><a href="categoria_<?php echo $categoria->id ?>">VER MAS</a></h3>
         </div>
     <?php } ?>
 </div>
@@ -47,7 +47,7 @@
             lazyLoad: 'ondemand',
             autoplay: true,
             autoplaySpeed: 1200,
-            infinite:true,
+            infinite: true,
         });
         $(".container-juego").slick({
             dots: false,
