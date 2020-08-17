@@ -1,0 +1,3 @@
+    RewriteEngine On
+    RewriteRule ^juego-([0-9]+).html?$ index.php?action=viewJuego&juegoId=$1 [L]
+

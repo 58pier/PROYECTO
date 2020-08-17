@@ -1,4 +1,4 @@
-<?php include "include/header.php" ?>
+<?php include "templates/include/header.php" ?>
 <?php $arreglo = $results['juego']->getImages(); ?>
 <style>
     .slick-slide {
