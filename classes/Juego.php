@@ -142,6 +142,7 @@
             $totalRows = $conn->query($sql)->fetch();
             $conn = null;
             return (array ( "results" => $list, "totalRows" => $totalRows[0]));
+
     }
 
         public function insert(){
@@ -168,6 +169,8 @@
             $st->execute();
             $this->id=$conn->lastInsertId();
             $conn=null;
+
+            $this->insertKeys();
         }
 
         public function update()
@@ -236,6 +239,66 @@
                 return $arreglo[$parametro];
             }
         }
+
+        public static function generateKeys($strength=16){
+            $keys = array();
+            $input = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $input_length = strlen($input);
+            $random_string = '';
+            for ($j = 0; $j<5; $j++ ){
+                for ($i = 0; $i < $strength; $i++) {
+                $random_character = $input[mt_rand(0, $input_length - 1)];
+                $random_string .= $random_character;
+                    if( $i==3 || $i ==  7 || $i == 11){
+                        $random_string .= "-";
+                    }
+                }
+                $keys[$j]= $random_string;
+                $random_string ='';
+            }
+            return $keys;
+        }
+
+        public function insertKeys(){
+            $idjuego = $this->id;
+            $arreglokeys = $this->generateKeys();
+
+            for ($i=0; $i < 5; $i++) {
+            $digitalkey = $arreglokeys[$i];
+            $conn = new PDO("mysql:host=localhost;dbname=proyecto", "root", "");
+            $sql = "INSERT INTO digitalkey ( idjuego, digitalkey) VALUES (:idjuego, :digitalkey)";
+            $st = $conn->prepare($sql);
+            $st->bindValue(":idjuego", $idjuego, PDO::PARAM_INT);
+            $st->bindValue(":digitalkey", $digitalkey, PDO::PARAM_STR);
+            $st->execute();
+            $conn = null;
+            }            
+        }
+
+        public function getKey(){
+            $idjuego= $this->id;
+            $conn = new PDO(DB_DNS, DB_USERNAME, DB_PASSWORD);
+            $sql = "SELECT * FROM digitalkey WHERE idjuego = :idjuego LIMIT 1";
+            $st = $conn->prepare($sql);
+            $st->bindValue(":idjuego", $idjuego, PDO::PARAM_INT);
+            $st->execute();
+            $row = $st->fetch();
+            $conn = null;
+            if ($row) return $row['digitalkey'];
+        }
+
+        public function deleteKey()
+        {
+        $idjuego = $this->id;
+        $conn = new PDO(DB_DNS, DB_USERNAME, DB_PASSWORD);
+        $st = $conn->prepare("DELETE FROM digitalkey WHERE idjuego = :idjuego LIMIT 1");
+        $st->bindValue(":idjuego", $idjuego, PDO::PARAM_INT);
+        $st->execute();
+        $conn = null;
+        }
+        
+
+        
     }
 
 ?>
