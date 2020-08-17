@@ -88,6 +88,7 @@
 
     function verification(){
         $results['pageTitle'] = "Pago";
+        $results['juego'] = JUEGO::getById((int)$_GET['juegoId']);
         
         require(TEMPLATE_PATH . "/factura.php");
     }

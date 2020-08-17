@@ -44,7 +44,7 @@
             return actions.order.capture().then(function(details) {
                 // Show a success message to the buyer
                 console.log(data);
-                window.location = '.?action=verification&paymentToken=' + data.facilitatorAccessToken + "&paymentID="+data.orderID;
+                window.location = '.?action=verification&paymentToken=' + data.facilitatorAccessToken + "&paymentID=" + data.orderID + "&juegoId=<?php echo $results['juego']->id ?>";
             });
         }
 

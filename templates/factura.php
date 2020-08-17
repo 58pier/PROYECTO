@@ -55,7 +55,9 @@ if ($state == "COMPLETED") {
         "juego" => $juego,
         "importe" => $importe,
         "fecha" => $fecha,
+        "digitalkey" => $results['juego']->getKey(),
     ];
+    $results['juego']->deleteKey();
 
     $factura = new Boleta($boleta);
     $factura->insert();
