@@ -5,7 +5,7 @@
     </div>
     <div class="lista_lista">
 
-        <table class="table_lista">
+        <table class="table_lista" border="1px">
 
             <tr>
                 <th>Fecha de Publicacion</th>
