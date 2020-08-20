@@ -94,61 +94,61 @@ class Correo{
                 </table>
             </div>
 <style>
-    body{
-        color: white;
-        text-align: center;
-    }
-    .contenedor_email_tabla tr {
-        margin: 15px;
-    }
+body{
+    color: white;
+    text-align: center;
+}
+.contenedor_email_tabla tr {
+    margin: 15px;
+}
 
-    .contenedor_email {
-        margin-top: 20px;
-        width: 35%;
-        height: 400px;
-        background-color: #050505d5;
-        background-position: center;
-        margin: auto;
-        margin-top: 20px;
-        color: white;
-    }
+.contenedor_email {
+    margin-top: 20px;
+    width: 35%;
+    height: 100%;
+    background-color: #050505d5;
+    background-position: center;
+    margin: auto;
+    margin-top: 20px;
+    color: white;
+}
 
-    tr {
-        margin-bottom: 30px;
-    }
+tr {
+    margin-bottom: 30px;
+}
 
-    .contenedor_email_tabla {
-        width: 100%;
-    }
+.contenedor_email_tabla {
+    width: 100%;
+}
 
-    .email_titulo {
-        width: 250px;
-        padding-left: 35px;
-        background-position: center;
-        margin: 0 auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+.email_titulo {
+    width: 250px;
+    padding-left: 35px;
+    background-position: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
-    #email_logo {
-        width: 80%;
-        background-color: black;
+#email_logo {
+    width: 80%;
+    background-color: black;
 
-    }
+}
 
-    .mensaje_email {
-        text-align: center;
-        color: red;
-        font-family: cursive;
-    }
+.mensaje_email {
+    text-align: center;
+    color: red;
+    font-family: cursive;
+}
 
-    .mensaje_email2 {
-        text-align: center;
-    }
+.mensaje_email2 {
+    text-align: center;
+}
 
-    .mensaje_email3 {
-        text-align: center;
-    }
+.mensaje_email3 {
+    text-align: center;
+}
 </style>';
 
     }
