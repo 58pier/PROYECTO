@@ -1,26 +1,26 @@
 <?php include "templates/admin/include/header.php" ?>
 
-<div id="sections3">
+<div id="sections4x">
     <h2><?php echo $results['pageTitle'] ?></h2>
     <form action="admin.php?action=<?php echo $results['formAction'] ?>" method="post">
 
         <div class="nombrecat">
-            <h3>Nombres:
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->nombres) ?>"> </h3>
+            <h3>Nombres</h3>
+                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->nombres) ?>"> 
             <h3> Apellidos</h3>
-                <input type="text"  id="apellidos" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->apellidos) ?>"> </h3>
+                <input type="text"  id="apellidos" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->apellidos) ?>"> 
             <h3>Direccion</h3> 
-                <input type="text"  id="direccion" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->direccion) ?>"> </h3>
+                <input type="text"  id="direccion" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->direccion) ?>"> 
             <h3>DNI</h3>    
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->dni) ?>"> </h3>
+                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->dni) ?>"> 
             <h3>Correo</h3>    
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->correo) ?>"> </h3>
+                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->correo) ?>"> 
             <h3>Juego</h3>    
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->juego) ?>"> </h3>
+                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->juego) ?>"> 
             <h3>Importe</h3>
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->importe) ?>"> </h3>
+                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->importe) ?>"> 
             <h3>Fecha:</h3>
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->fecha) ?>"> </h3>
+                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->fecha) ?>"> 
         </div>
         <div class="buttons">
             <input type="submit" name="regresar" value="Regresar" id="b1">
