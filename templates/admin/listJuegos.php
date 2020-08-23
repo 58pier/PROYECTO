@@ -16,9 +16,9 @@
         <table class="table_lista" border="1px">
 
             <tr>
-                <th>Fecha de Publicacion</th>
+                <th>Fecha de Publicación</th>
                 <th>Juego</th>
-                <th>Categoria</th>
+                <th>Categoría</th>
             </tr>
 
             <?php foreach ($results['juegos'] as $juego) { ?>

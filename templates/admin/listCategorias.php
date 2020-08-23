@@ -1,7 +1,7 @@
 <?php include "include/header.php" ?>
 <div class="lista_juegos">
     <div class="titulo_lista">
-        <h2>LISTA DE CATEGORIAS</h2>
+        <h2>LISTA DE CATEGORÍAS</h2>
     </div>
 
 
@@ -10,7 +10,7 @@
         <table>
 
             <tr>
-                <th>Categoria</th>
+                <th>Categoría</th>
             </tr>
 
             <?php foreach ($results['categorias'] as $categoria) { ?>
