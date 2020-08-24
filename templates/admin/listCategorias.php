@@ -7,12 +7,13 @@
 
     <div class="lista_lista">
 
-        <table>
+    <table class="table_lista" border="1px" id="tabla">
 
+    <thead>
             <tr>
                 <th>Categoría</th>
             </tr>
-
+            </thead>
             <?php foreach ($results['categorias'] as $categoria) { ?>
 
                 <tr onclick="location='admin.php?action=editCategoria&amp;categoriaId=<?php echo $categoria->id ?>'">
