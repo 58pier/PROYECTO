@@ -530,6 +530,12 @@ form p {
     background-color: #222123;
 }
 
+.lista_lista tbody tr:hover{
+    background-color: #ff5535;
+    cursor: pointer;
+
+}
+
 #añadir_lista{
     margin-top: 15px;
     width: 100px;
@@ -788,4 +794,35 @@ height: 500px;
         width: 250px;
     }
 }
+#adminHeader{
+    display: flex;
+    margin-bottom: 50px;
+    margin-left: 90px;
+    margin-right:80px;
+}
+#adminHeader h2{
+    font-size: 30px;
+    margin-right: 25px;
+}
+/* Menu */
+.nav-header{
+    float: right;
+    margin-left: 450px;
+}
+.nav-admin{
+    display: flex;
 
+}
+.nav-admin li{
+    list-style: none;
+    margin: 15px;
+    margin-right: 0px;
+    margin-left: 0px;
+    font-size: 20px;
+    padding: 10px;
+    width: 160px;
+    text-align: center;
+}
+.nav-admin li:hover{
+    background-color: #ff5535;
+}

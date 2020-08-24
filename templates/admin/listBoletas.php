@@ -5,7 +5,7 @@
     </div>
     <div class="lista_lista">
 
-        <table class="table_lista" border="1px" id="tabla">
+        <table class="table_lista" border="1px" id="tabla" >
 
             <thead>
                 <tr>
@@ -28,7 +28,6 @@
         </table>
 
     </div>
-    <p> <?php echo $results['totalRows'] ?> juego<?php echo ($results['totalRows'] != 1) ? 's' : '' ?> en total</p>
 
 </div>
 <?php include "templates/admin/include/footer.php" ?>
