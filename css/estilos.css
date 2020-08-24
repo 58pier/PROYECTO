@@ -626,15 +626,9 @@ form p {
     margin-right: 250px;
     text-align: inherit;
     line-height : 40px;
-    background-color: #962714c7;
     padding: 30px;
-    -webkit-box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
-    -moz-box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
-    box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
+    
 }
-
-
-
 .tit{
     text-align: center;
 }
@@ -675,6 +669,10 @@ form p {
     height: 20px;
 }
 #derechos_autor{
+    width: 28%;
+    height: 20px;
+}
+#trailer_1{
     width: 32%;
     height: 20px;
 }
@@ -682,9 +680,41 @@ form p {
     width: 32%;
     height: 20px;
 }
+#portada{
+    width: 32%;
+    height: 20px;
+}
+#gameplay_1{
+    width: 32%;
+    height: 20px;
+}
+#gameplay_2{
+    width: 32%;
+    height: 20px;
+}
+#logo{
+    width: 32%;
+    height: 20px;
+}
+#procesador{
+    width: 32%;
+    height: 20px;
+}
+#so{
+    width: 28%;
+    height: 20px;
+}
+#memoria{
+    width: 32%;
+    height: 20px;
+}
+#tarjeta{
+    width: 32%;
+    height: 20px;
+}
 #categoriaId{
-    width: 32.5%;
-    height: 25px;
+    width: 33%;
+    height: 28px;
 }
 .botones{
     margin-left: 834px;
