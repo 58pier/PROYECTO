@@ -37,6 +37,6 @@
 
     </div>
 
-    <p><a href="admin.php?action=newJuego"> Añadir un nuevo Juego</a></p>
+    <p class="special-buttons"><a href="admin.php?action=newJuego"> Añadir un nuevo Juego</a></p>
 </div>
 <?php include "templates/admin/include/footer.php" ?>

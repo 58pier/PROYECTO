@@ -106,15 +106,15 @@
         <textarea name="descripcion" id="descripcion" placeholder="Descripcion del juego" rows="10" cols="108" required maxlength="100000"><?php echo htmlspecialchars($results['juego']->descripcion) ?></textarea>
     </div>
     <div class="botones">
-        <input id="btnjuego" type="submit" name="saveChanges" value="Guardar Cambios">
-        <input id="btnjuego" type="submit" formvalidate name="cancel" value="Cancelar">
+        <input id="btnjuego" class="button-submit" type="submit" name="saveChanges" value="Guardar Cambios">
+        <input id="btnjuego" class="button-submit" type="submit" formvalidate name="cancel" value="Cancelar">
     </div>
 
 </form>
 
 <?php if ($results['juego']->id) { ?>
     <div class="del">
-        <p><a href="admin.php?action=deleteJuego&amp;juegoId=<?php echo $results['juego']->id ?>" onclick="return confirm('Eliminar este juego?)">Eliminar este Juego</a></p>
+        <p class="special-buttons"><a href="admin.php?action=deleteJuego&amp;juegoId=<?php echo $results['juego']->id ?>" onclick="return confirm('Eliminar este juego?)">Eliminar este Juego</a></p>
     </div>
 <?php } ?>
 <br>

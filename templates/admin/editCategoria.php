@@ -23,9 +23,10 @@
             <input type="submit" formnovalidate name="cancel" value="Cancelar" id="b2">
         </div>
     </form>
+    <?php if ($results['categoria']->id) { ?>
+            <p class="special-buttons"> <a href="admin.php?action=deleteCategoria&amp;categoriaId=<?php echo $results['categoria']->id ?>" onclick="return confirm('Eliminar esta categoria? )">Eliminar esta categoria</a></p>
+    <?php } ?>
 </div>
 
-<?php if( $results['categoria']->id) { ?>
-    <p> <a href="admin.php?action=deleteCategoria&amp;categoriaId=<?php echo $results['categoria']->id?>" onclick="return confirm('Eliminar esta categoria? )">Eliminar esta categoria</a></p>
-<?php } ?>
+
 <?php include "templates/admin/include/footer.php" ?>

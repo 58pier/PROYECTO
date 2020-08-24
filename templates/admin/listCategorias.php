@@ -7,18 +7,22 @@
 
     <div class="lista_lista">
 
-        <table>
+        <table id="tabla">
 
-            <tr>
-                <th>Categoría</th>
-            </tr>
-
-            <?php foreach ($results['categorias'] as $categoria) { ?>
-
-                <tr onclick="location='admin.php?action=editCategoria&amp;categoriaId=<?php echo $categoria->id ?>'">
-                    <td> <?php echo $categoria->nombre ?></td>
+            <thead>
+                <tr>
+                    <th>Categoría</th>
                 </tr>
-            <?php } ?>
+            </thead>
+
+            <tbody>
+                <?php foreach ($results['categorias'] as $categoria) { ?>
+
+                    <tr onclick="location='admin.php?action=editCategoria&amp;categoriaId=<?php echo $categoria->id ?>'">
+                        <td> <?php echo $categoria->nombre ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
         </table>
 
     </div>
@@ -29,8 +33,7 @@
     <?php if (isset($results['statusMessage'])) { ?>
         <div class="statusMessage"><?php echo $results['statusMessage'] ?></div>
     <?php } ?>
-    <p> <?php echo $results['totalRows'] ?> categoria<?php echo ($results['totalRows'] != 1) ? 's' : '' ?> en total</p>
 
-    <p><a href="admin.php?action=newCategoria"> Añadir una nueva categoria</a></p>
+    <p class="special-buttons"> <a href="admin.php?action=newCategoria"> Añadir una nueva categoria</a></p>
 </div>
 <?php include "templates/admin/include/footer.php" ?>

@@ -567,7 +567,7 @@ form p {
 #sections3 {
     background-color: #962714c7;
     padding: 10px;
-    height: 400px;
+    height: 440px;
     width: 66%;
     margin: auto;
     -webkit-box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
@@ -837,4 +837,14 @@ height: 500px;
 }
 .nav-admin li:hover{
     background-color: #ff5535;
+}
+.special-buttons:hover{
+    color: #ff5535;
+}
+
+#btnjuego:hover,
+#b1:hover,
+#b2:hover {
+    background-color: #ff5535;
+    cursor: pointer;
 }
