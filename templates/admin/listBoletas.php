@@ -5,22 +5,26 @@
     </div>
     <div class="lista_lista">
 
-        <table class="table_lista" border="1px">
+        <table class="table_lista" border="1px" id="tabla">
 
-            <tr>
-                <th>Fecha de Publicacion</th>
-                <th>Juego</th>
-                <th>Importe</th>
-            </tr>
-
-            <?php foreach ($results['boletas'] as $boleta) { ?>
-
-                <tr onclick="location='admin.php?action=viewBoleta&amp;boletaId=<?php echo $boleta->id ?>'">
-                    <td> <?php echo $boleta->fecha ?></td>
-                    <td> <?php echo $boleta->juego ?></td>
-                    <td> <?php echo $boleta->importe ?></td>
+            <thead>
+                <tr>
+                    <th>Fecha de Publicacion</th>
+                    <th>Juego</th>
+                    <th>Importe</th>
                 </tr>
-            <?php } ?>
+            </thead>
+
+            <tbody>
+                <?php foreach ($results['boletas'] as $boleta) { ?>
+    
+                    <tr onclick="location='admin.php?action=viewBoleta&amp;boletaId=<?php echo $boleta->id ?>'">
+                        <td> <?php echo $boleta->fecha ?></td>
+                        <td> <?php echo $boleta->juego ?></td>
+                        <td> <?php echo $boleta->importe ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
         </table>
 
     </div>

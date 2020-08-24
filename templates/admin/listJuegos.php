@@ -13,26 +13,29 @@
 
     <div class="lista_lista">
 
-        <table class="table_lista" border="1px">
+        <table class="table_lista" border="1px" id="tabla">
 
-            <tr>
-                <th>Fecha de Publicación</th>
-                <th>Juego</th>
-                <th>Categoría</th>
-            </tr>
-
-            <?php foreach ($results['juegos'] as $juego) { ?>
-
-                <tr onclick="location='admin.php?action=editJuego&amp;juegoId=<?php echo $juego->id ?>'">
-                    <td> <?php echo date('j M Y', $juego->fecha) ?></td>
-                    <td> <?php echo $juego->nombre ?></td>
-                    <td> <?php echo $results['categorias'][$juego->categoriaId]->nombre ?></td>
+            <thead>
+                <tr>
+                    <th>Fecha de Publicación</th>
+                    <th>Juego</th>
+                    <th>Categoría</th>
                 </tr>
-            <?php } ?>
+            </thead>
+
+            <tbody>
+                <?php foreach ($results['juegos'] as $juego) { ?>
+    
+                    <tr onclick="location='admin.php?action=editJuego&amp;juegoId=<?php echo $juego->id ?>'">
+                        <td> <?php echo date('j M Y', $juego->fecha) ?></td>
+                        <td> <?php echo $juego->nombre ?></td>
+                        <td> <?php echo $results['categorias'][$juego->categoriaId]->nombre ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
         </table>
 
     </div>
-    <p> <?php echo $results['totalRows'] ?> juego<?php echo ($results['totalRows'] != 1) ? 's' : '' ?> en total</p>
 
     <p><a href="admin.php?action=newJuego"> Añadir un nuevo Juego</a></p>
 </div>
