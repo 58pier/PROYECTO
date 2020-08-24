@@ -83,6 +83,7 @@ nav ul li
 {
     margin: 100px;
     margin-top: 50px;
+    height: 100%;
 }
 
 /*Cierra Container*/
@@ -735,7 +736,7 @@ height: 500px;
 }
 .body-homepage{
     margin-top: 7%;
-    margin-left: 9%;   
+    margin-left: 9%;
 }
 .body-homepage h2{
     text-transform: uppercase;
@@ -844,7 +845,16 @@ height: 500px;
 
 #btnjuego:hover,
 #b1:hover,
-#b2:hover {
+#b2:hover,
+#ingresar:hover {
     background-color: #ff5535;
     cursor: pointer;
+}
+.container-twitch{
+    margin-top: 50px;
+    width: 100%;
+}
+#twitch-embed iframe{
+    height: 350px;
+    width: 400px;
 }
