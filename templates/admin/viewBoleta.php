@@ -5,22 +5,14 @@
     <form action="admin.php?action=<?php echo $results['formAction'] ?>" method="post">
 
         <div class="nombrecat">
-            <h3>Nombres</h3>
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->nombres) ?>"> 
-            <h3> Apellidos</h3>
-                <input type="text"  id="apellidos" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->apellidos) ?>"> 
-            <h3>Direccion</h3> 
-                <input type="text"  id="direccion" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->direccion) ?>"> 
-            <h3>DNI</h3>    
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->dni) ?>"> 
-            <h3>Correo</h3>    
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->correo) ?>"> 
-            <h3>Juego</h3>    
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->juego) ?>"> 
-            <h3>Importe</h3>
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->importe) ?>"> 
-            <h3>Fecha:</h3>
-                <input type="text"  id="nombre" name="nombre" value="<?php echo htmlspecialchars($results['boleta']->fecha) ?>"> 
+            <h3>Nombre: <?php echo htmlspecialchars($results['boleta']->nombres) ?></h3>
+            <h3> Apellidos: <?php echo htmlspecialchars($results['boleta']->apellidos) ?><h3>
+            <h3>Dirección: <?php echo htmlspecialchars($results['boleta']->direccion) ?><h3>
+            <h3>DNI: <?php echo htmlspecialchars($results['boleta']->dni) ?><h3>
+            <h3>Correo: <?php echo htmlspecialchars($results['boleta']->correo) ?><h3>
+            <h3>Juego: <?php echo htmlspecialchars($results['boleta']->juego) ?><h3>
+            <h3>Importe: <?php echo htmlspecialchars($results['boleta']->importe) ?><h3>
+            <h3>Fecha: <?php echo htmlspecialchars($results['boleta']->fecha) ?><h3>
         </div>
         <div class="buttons">
             <input type="submit" name="regresar" value="Regresar" id="b1">
