@@ -44,8 +44,8 @@ $fecha[10] = " ";
 $fecha[19] = " ";
 $fecha[12] = (int) $fecha[12];
 if ($state == "COMPLETED") {
-    $mensajePaypal = "<h3> Gracias por su compra </h3>
-                    <p>Su pago ha sido aprobado, en breve se enviara una boleta de venta a la dirección electronica consignada junto con el codigo para la activación</p>";
+    $mensajePaypal = "<h1 class='mensaje_paypal'> ¡GRACIAS POR SU COMPRA! </h1>
+                    <p class='mensaje_paypal2'>Su pago ha sido aprobado, en breve se enviará una boleta de venta a la dirección electronica consignada junto con el codigo para la activación</p>";
     $boleta = [
         "nombres" => $name,
         "apellidos" => $lastName,

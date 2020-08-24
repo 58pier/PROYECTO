@@ -610,19 +610,22 @@ form p {
 #sections4x {
     background-color: #962714c7;
     padding: 10px;
-    height: 810px;
+    height: 490px;
     width: 55%;
     margin: auto;
     -webkit-box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
     -moz-box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
     box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 .nombrecat #apellidos{
  width:510px;
 }
 .nombrecat #direccion{
  width:510px;
+}
+.nombrecat h3{
+color: rgb(237, 238, 234);
 }
 /*fin viewBoleta*/
 
@@ -638,8 +641,6 @@ form p {
     -moz-box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
     box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
 }
-
-
 
 .tit{
     text-align: center;
@@ -773,6 +774,7 @@ height: 500px;
     width: 300px;
     height: 250px;
     margin-right: 25px;
+    text-align: center;
 }
 
 .slide-juegox{
@@ -786,6 +788,16 @@ height: 500px;
     #paypal-button-container {
         width: 100%;
     }
+}
+.mensaje_paypal{
+ margin-top: 150px;
+ font-size: 50px;
+ text-align: center;
+}
+.mensaje_paypal2{
+ font-size: 20px;
+ text-align: center;
+ margin-bottom: 255px;
 }
 
 /* Media query for desktop viewport */
