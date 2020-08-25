@@ -7,7 +7,10 @@ body
     font-family: 'Open Sans',    sans-serif;
     background-color: rgba(0, 0, 0, 0.801);
     color: white;
+    background-image: url('../img/fondo2.png');
+
 }
+
 a{
     text-decoration: none;
     color: inherit;
@@ -20,6 +23,7 @@ li{
 .container-menu
 {
     background-color: #222123;
+    
 }
 .menu 
 {
@@ -87,6 +91,7 @@ nav ul li
     margin: 100px;
     margin-top: 50px;
     height: 100%;
+
 }
 
 /*Cierra Container*/
