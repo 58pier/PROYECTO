@@ -14,7 +14,7 @@ use  css\estilos; ?>
     <title><?php echo htmlspecialchars($results['pageTitle']) ?></title>
 </head>
 
-<body>
+<body background="img/fondo.jpg">
     <div class="container-menu">
         <div class="menu">
             <div class="logo">
@@ -27,12 +27,12 @@ use  css\estilos; ?>
                             <li><a href="categoria_<?php echo $categoria->id ?>"><?php echo htmlspecialchars($categoria->nombre) ?></a></li>
 
                         <?php } ?>
-                        <?php if( $results['categorias']){ ?>
-                        <li>
-                            <div class="icon-menu1 ctn-icon-search">
-                                <img id="icon-search" src="img/busqueda.png" alt="">
-                            </div>
-                        </li>
+                        <?php if ($results['categorias']) { ?>
+                            <li>
+                                <div class="icon-menu1 ctn-icon-search">
+                                    <img id="icon-search" src="img/busqueda.png" alt="">
+                                </div>
+                            </li>
                         <?php } ?>
                     </ul>
                 </nav>
