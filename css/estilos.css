@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap');
 
 body
 {
@@ -22,14 +23,14 @@ li{
 
 .container-menu
 {
-    background-color: #222123;
+    background-color: #263b4e81;
     
 }
 .menu 
 {
     margin-left: 5%;
     padding-top: 0.5%;
-    background-color: #262428;
+    background-color: #263b4e81;
     display: flex;
     padding: 10px;
 }
@@ -79,7 +80,8 @@ nav ul li
 }
 .categorias nav ul li a:hover
 {
-    background-color: #ff5535;
+    background-color: #679da5;
+    color: black;
 }
 
 /*Cierra header*/
@@ -626,12 +628,23 @@ form p {
     box-shadow: -5px 4px 73px -16px rgba(0,0,0,0.75);
     margin-bottom: 80px;
 }
-.nombrecat #apellidos{
- width:510px;
+#sections4x{
+    width: 1000px;
+    height: 550px;
 }
-.nombrecat #direccion{
- width:510px;
+.elemento-boleta{
+    width: 450px;
+    float: left;
+    display: flex;
+    height: 100px;
 }
+.elemento-boleta h3,p{
+    margin-right:20px;
+}
+.elemento-boleta p{
+    margin-top: 20px;
+}
+
 .nombrecat h3{
 color: rgb(237, 238, 234);
 }
@@ -736,10 +749,9 @@ height: 500px;
 }
 .slide-title span{
     text-decoration: none;
-    color: white;
-    font-size: 25px;
+    color: rgb(75, 130, 194);
+    font-size: 35px;
     text-transform: uppercase;
-    
 }
 .body-homepage{
     margin-top: 7%;
@@ -760,16 +772,32 @@ height: 500px;
     font-size: 17px;
     font-weight: 10;
 }
+.container-categoria{
+    font-family: 'Balsamiq Sans';
+}
+
+.category {
+    color: rgb(16, 216, 189) ;
+}
 .slide-img2 img{
     width: 300px;
     height: 250px;
     border-radius: 10px;
 }
+
+.slide-img2 img:hover {
+    filter:brightness(0.4);
+}
+.archive-title span {
+    color: white;
+    font-size: 20px;
+}
+
 .slide-title-juego{
     margin-top: 20px;
 }
 .slide-title-juego span{
-    font-size: 20px;
+    font-size: 25px;
 }
 
 /*fin Homepage*/
@@ -899,7 +927,7 @@ height: 500px;
     position: fixed;
     top: -100px;
     width: 100%;
-    background-color: rgba(32, 32, 32, 1);
+    background-color: #34577781;
     padding: 20px;
     z-index: 9;
     transition: all 600ms;

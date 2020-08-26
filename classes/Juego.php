@@ -311,5 +311,11 @@
         
     }
 
+/*     for ($i=1; $i<=24 ;$i++) {      
+        $a = Juego::getById($i);
+        $a->insertKeys();
+        echo "a";
+    } */
+
 ?>
 

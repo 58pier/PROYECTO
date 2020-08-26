@@ -159,12 +159,12 @@ function listJuegos()
 
     if( isset( $_GET['error']))
     {
-        if( $_GET['error'] == "juegoNotFound") $results['errorMessage'] = "Error :Juego not found.";
+        if( $_GET['error'] == "juegoNotFound") $results['errorMessage'] = "Error :Juego no encontrado.";
     }
 
     if( isset($_GET['status']))
     {
-        if( $_GET['status'] == "changesSaved") $results['statusMessage'] = "Your changes have been saved";
+        if( $_GET['status'] == "changesSaved") $results['statusMessage'] = "Tus cambios han sido guardados";
         if ($_GET['status'] == "juegoDeleted") $results['statusMessage'] = "Juego Deleted";
     }
 
@@ -269,7 +269,7 @@ function deleteCategoria()
 
 function viewBoleta(){
     $results = array();
-    $results['pageTitle'] = "Boletas";
+    $results['pageTitle'] = "Detalles de Venta";
     $results['formAction'] = "viewBoleta";
     $results['boleta'] = Boleta::getById((int)$_GET['boletaId']);
 

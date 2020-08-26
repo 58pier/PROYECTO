@@ -27,7 +27,7 @@
                     <div class="slide-img3">
                         <img src="<?php echo JUEGO_IMAGE_PATH . "/" . htmlspecialchars($juego->getImages(0)) ?>">
                     </div>
-                    <div class="slide-title">
+                    <div class="slide-title archive-title" >
                         <span> <?php echo ($juego->nombre) ?></span>
                     </div>
                 </a>
